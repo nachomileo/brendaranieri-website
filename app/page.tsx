@@ -87,7 +87,7 @@ export default function Home() {
 
       <main>
         <section className="hero" aria-label="Featured artwork">
-          <div className="hero-image"><Image src="/images/artworks/vasija-2/terra-brenda-ranieri-2026-11.webp" alt="A.03.2, detalle de la superficie de una vasija" fill priority sizes="100vw" quality={90} /></div>
+          <div className="hero-image"><Image src="/images/hero-la-forma-del-agua-quieta-retouched.webp" alt="Fuente cerámica de La forma del agua quieta sobre fondo blanco" fill priority sizes="100vw" quality={92} /></div>
         </section>
 
         <section className="projects section" id="projects" aria-labelledby="projects-title">

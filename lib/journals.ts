@@ -104,16 +104,16 @@ export const sharedEntries: JournalEntry[] = [
   },
   {
     number: "03",
-    title: "Abrir el archivo",
-    meta: "Investigación colectiva · En curso",
+    title: "Memorias de agua y barro",
+    meta: "Coloquio con Romina Casile · Taller colectivo · 2025",
     text: [
-      "Las prácticas compartidas extienden el estudio más allá de un espacio individual. Talleres, conversaciones y colaboraciones hacen circular técnicas y preguntas, y permiten que una investigación cambie al encontrarse con la experiencia de otras personas.",
-      "El archivo resultante reúne tanto piezas terminadas como pruebas y documentos. Su valor está en mostrar las relaciones que hicieron posible cada forma.",
+      "El coloquio con la artista e investigadora Romina Casile abrió una conversación sobre las poéticas del agua y los procesos de creación con arcilla. El encuentro continuó en un taller de experimentación cerámica con materiales naturales recolectados por Brenda Ranieri.",
+      "Conversación, mediación y práctica manual formaron un mismo espacio de investigación colectiva, donde la memoria territorial pudo circular entre experiencias y cuerpos.",
     ],
     images: [
-      image("shared", "56b802cc-5143-4a6c-8d04-7fee176bb413-1-102-o.webp", "Composición final surgida de una práctica compartida", 1444, 2178),
-      image("shared", "67cc9daa-85ec-4e21-bae6-1c12268dd97f-1-102-o.webp", "Detalle de un archivo visual colaborativo", 1444, 2178),
-      image("shared", "b4831d08-156d-4c16-8223-ca5fe020fcdb-1-102-o.webp", "Resultado material de una investigación colectiva", 1444, 2178),
+      { src: "/images/projects/memorias-de-agua-y-barro/19memorias-de-agua-y-barro-open-galeria-5.webp", alt: "Coloquio de Memorias de agua y barro con Romina Casile", width: 2400, height: 1800 },
+      { src: "/images/projects/memorias-de-agua-y-barro/memorias-de-agua-y-barro-taller-3.webp", alt: "Taller colectivo de experimentación cerámica", width: 2400, height: 1800 },
+      { src: "/images/projects/memorias-de-agua-y-barro/22memorias-de-agua-y-barro-open-galeria-5.webp", alt: "Participantes durante Memorias de agua y barro", width: 1800, height: 2400 },
     ],
   },
 ];

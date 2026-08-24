@@ -28,7 +28,7 @@ export default async function ProjectPage({ params }: Props) {
   if (!project) notFound();
   const presentation = projectPresentation(project, "es");
   const projectImages = getProjectImages(project.slug);
-  const narrativeImages = projectImages.filter((image) => image.kind !== "archive");
+  const narrativeImages = project.slug === "oax-car-38-57" ? projectImages.filter((image) => image.kind !== "archive") : projectImages;
   const categoryLabels: Record<ProjectCategory, string> = { "solo-shows": "Solo shows", "group-shows": "Group shows", biennial: "Bienal", "cultural-festivals": "Festivales culturales", collaborations: "Colaboraciones", residencies: "Residencias" };
   const index = projects.findIndex(({ slug }) => slug === project.slug);
   const previous = projects[(index - 1 + projects.length) % projects.length];
@@ -52,6 +52,11 @@ export default async function ProjectPage({ params }: Props) {
   const oaxProjectImages = project.slug === "oax-car-38-57" ? narrativeImages : [];
   const oaxFieldArchive = project.slug === "oax-car-38-57" ? loadOaxFolder("Archivo 35mm", "Registro analógico del proceso de OAX-CAR-38-57") : [];
   const oaxRayograms = project.slug === "oax-car-38-57" ? loadOaxFolder("Rayogramas", "Proceso de co-creación y rayograma de agua") : [];
+  const facts = [
+    ["period", "Período", project.period], ["place", "Lugar", project.place], ["type", "Tipo", project.type],
+    ["institution", "Institución", project.institution], ["curator", "Comisariado", project.curator],
+    ["materials", "Materiales", project.materials], ["techniques", "Técnicas", project.techniques], ["dimensions", "Dimensiones", project.dimensions],
+  ] as const;
 
   return (
     <>
@@ -63,11 +68,15 @@ export default async function ProjectPage({ params }: Props) {
         {project.slug === "oax-car-38-57" ? (
           <OaxProjectBlocks project={project} images={oaxProjectImages} rayograms={oaxRayograms} fieldArchive={oaxFieldArchive} />
         ) : <>
-        <ProjectEditorialGallery title={presentation.title} code={projectCode} images={narrativeImages} featuredIndex={0} sliderGroups={sliderGroups} text={project.introEs.replaceAll("*", "")} />
-        <section className="project-overview" aria-label="Información del proyecto">
-          <div className="project-facts"><dl><div><dt>Período</dt><dd>{project.period}</dd></div><div><dt>Lugar</dt><dd>{project.place}</dd></div><div><dt>Tipo</dt><dd>{project.type}</dd></div><div><dt>Institución</dt><dd>{project.institution}</dd></div><div><dt>Comisariado</dt><dd>{project.curator}</dd></div><div><dt>Materiales</dt><dd>{project.materials}</dd></div><div><dt>Técnicas</dt><dd>{project.techniques}</dd></div><div><dt>Dimensiones</dt><dd>{project.dimensions}</dd></div></dl></div>
+        <nav className="oax-block-index project-block-index" aria-label={`Índice de ${presentation.title}`}>
+          <a href="#project-information"><span>01</span><strong>Contexto e información</strong><small>Ficha y texto del proyecto</small></a>
+          <a href="#project-documentation"><span>02</span><strong>Documentación</strong><small>{narrativeImages.length} imágenes</small></a>
+        </nav>
+        <section className="project-overview" id="project-information" aria-label="Información del proyecto">
+          <div className="project-facts"><dl>{facts.filter(([key, , value]) => value && value !== "PENDIENTE" && !project.hiddenFacts?.includes(key)).map(([key, label, value]) => <div key={key}><dt>{project.factLabels?.[key] ?? label}</dt><dd>{value}</dd></div>)}</dl></div>
           <article className="project-overview-copy"><span>01 — Contexto y proceso</span>{bodyParagraphs.map((paragraph, paragraphIndex) => <p key={paragraphIndex}>{paragraph}</p>)}</article>
         </section>
+        <div id="project-documentation"><ProjectEditorialGallery title={presentation.title} code={projectCode} images={narrativeImages} featuredIndex={project.slug === "la-forma-del-agua-quieta" ? 6 : 0} sliderGroups={sliderGroups} text="" /></div>
         </>}
         <nav className="artwork-pagination" aria-label="Previous and next project"><Link href={`/projects/${previous.slug}`}>← {previous.titleEs}</Link><Link href="/#projects">Todos los proyectos</Link><Link href={`/projects/${next.slug}`}>{next.titleEs} →</Link></nav>
       </main>

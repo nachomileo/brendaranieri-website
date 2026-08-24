@@ -2,10 +2,8 @@
 
 import Image from "next/image";
 import { useEffect, useState } from "react";
-import type { ArtworkImage } from "../../lib/artworks";
-
 type Props = {
-  image: ArtworkImage;
+  image: { src: string; alt: string; width?: number; height?: number };
   className?: string;
   sizes: string;
 };
@@ -27,13 +25,13 @@ export function ZoomableArtworkImage({ image, className = "", sizes }: Props) {
   return (
     <>
       <button className={`zoomable-artwork-image ${className}`} type="button" onClick={() => setOpen(true)} aria-label={`Ampliar imagen: ${image.alt}`}>
-        <Image src={image.src} alt={image.alt} width={image.width} height={image.height} sizes={sizes} quality={88} />
+        <Image src={image.src} alt={image.alt} width={image.width ?? 1600} height={image.height ?? 1200} sizes={sizes} quality={88} />
       </button>
       {open && (
         <div className="artwork-lightbox" role="dialog" aria-modal="true" aria-label={`Vista ampliada: ${image.alt}`} onClick={() => setOpen(false)}>
           <button className="artwork-lightbox-close" type="button" onClick={() => setOpen(false)} aria-label="Cerrar imagen">Cerrar ×</button>
           <div className="artwork-lightbox-image" onClick={(event) => event.stopPropagation()}>
-            <Image src={image.src} alt={image.alt} width={image.width} height={image.height} sizes="96vw" quality={95} priority />
+            <Image src={image.src} alt={image.alt} width={image.width ?? 1600} height={image.height ?? 1200} sizes="96vw" quality={95} priority />
           </div>
         </div>
       )}

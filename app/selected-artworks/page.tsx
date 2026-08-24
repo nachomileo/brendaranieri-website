@@ -15,7 +15,7 @@ export default function SelectedArtworksPage() {
         <div className="archive-heading"><h1>Piezas</h1><span>{String(artworks.length).padStart(2, "0")} piezas</span></div>
         <div className="all-artworks-grid">
           {artworkArchive.map((artwork) => (
-            <Link className="archive-artwork" href={`/selected-artworks/${artwork.slug}`} key={artwork.slug} aria-label={`Pieza ${artworkCode(artwork)}, ${artwork.year}`}>
+            <Link className={`archive-artwork archive-artwork-${artwork.slug}`} href={`/selected-artworks/${artwork.slug}`} key={artwork.slug} aria-label={`Pieza ${artworkCode(artwork)}, ${artwork.year}`}>
               {artwork.images?.[0]
                 ? <div className="archive-artwork-image"><Image src={artwork.images[0].src} alt={artwork.images[0].alt} fill sizes="(max-width: 760px) 50vw, 20vw" quality={88} /></div>
                 : <div className={`placeholder archive-artwork-image ${artwork.className}`} role="img" aria-label={`${artwork.title}, imagen pendiente`} />}

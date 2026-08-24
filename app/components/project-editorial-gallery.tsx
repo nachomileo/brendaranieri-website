@@ -1,6 +1,6 @@
-import Image from "next/image";
 import type { ProjectImage } from "../../lib/project-images";
 import { ArtworkSlider } from "./artwork-slider";
+import { ZoomableArtworkImage } from "./zoomable-artwork-image";
 
 type Props = {
   title: string;
@@ -20,11 +20,11 @@ export function ProjectEditorialGallery({ title, code, images, featuredIndex = 0
 
   return <section className="project-editorial" aria-label={`Documentación de ${title}`}>
     <div className="project-editorial-feature">
-      <figure><span>{code}.01</span><Image src={featured.src} alt={featured.alt} width={featured.width} height={featured.height} sizes="(max-width: 760px) 100vw, 68vw" quality={90} /></figure>
-      <div><span>Documentación del proyecto</span><p>{text}</p></div>
+      <figure><span>{code}.01</span><ZoomableArtworkImage image={featured} sizes="(max-width: 760px) 100vw, 68vw" /></figure>
+      <div><span>Documentación del proyecto</span>{text && <p>{text}</p>}</div>
     </div>
     <div className="project-editorial-grid">
-      {visible.map((image, imageIndex) => <figure key={image.src}><span>{code}.{String(imageIndex + 2).padStart(2, "0")}</span><Image src={image.src} alt={image.alt} width={image.width} height={image.height} sizes="(max-width: 760px) 100vw, 48vw" quality={88} /></figure>)}
+      {visible.map((image, imageIndex) => <figure key={image.src}><span>{code}.{String(imageIndex + 2).padStart(2, "0")}</span><ZoomableArtworkImage image={image} sizes="(max-width: 760px) 100vw, 48vw" /></figure>)}
     </div>
     {sliderGroups.map((group, groupIndex) => group.length > 1 && <div className="project-related-slider" key={groupIndex}>
       <header><span>Serie {String(groupIndex + 1).padStart(2, "0")}</span><p>Vistas relacionadas · {group.length} imágenes</p></header>

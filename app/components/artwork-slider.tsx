@@ -6,6 +6,7 @@ import type { ArtworkImage } from "../../lib/artworks";
 
 export function ArtworkSlider({ images, code }: { images: ArtworkImage[]; code: string }) {
   const [current, setCurrent] = useState(0);
+  const [zoomOpen, setZoomOpen] = useState(false);
   const pointerStart = useRef<number | null>(null);
   const image = images[current];
   const move = useCallback((direction: number) => {
@@ -17,6 +18,14 @@ export function ArtworkSlider({ images, code }: { images: ArtworkImage[]; code: 
     const timer = window.setInterval(() => setCurrent((value) => (value + 1) % images.length), 4500);
     return () => window.clearInterval(timer);
   }, [images.length]);
+
+  useEffect(() => {
+    if (!zoomOpen) return;
+    const closeOnEscape = (event: KeyboardEvent) => event.key === "Escape" && setZoomOpen(false);
+    document.addEventListener("keydown", closeOnEscape);
+    document.body.style.overflow = "hidden";
+    return () => { document.removeEventListener("keydown", closeOnEscape); document.body.style.overflow = ""; };
+  }, [zoomOpen]);
 
   const finishSwipe = (clientX: number) => {
     if (pointerStart.current !== null && Math.abs(clientX - pointerStart.current) > 45) move(clientX < pointerStart.current ? 1 : -1);
@@ -36,7 +45,7 @@ export function ArtworkSlider({ images, code }: { images: ArtworkImage[]; code: 
       onPointerUp={(event) => finishSwipe(event.clientX)}
       onPointerCancel={() => { pointerStart.current = null; }}
     >
-      <Image className="piece-slider-image" key={image.src} src={image.src} alt={image.alt} fill priority={current === 0} sizes="(max-width: 760px) 94vw, 62vw" quality={92} />
+      <button className="piece-slider-open" type="button" onClick={() => setZoomOpen(true)} aria-label={`Ampliar imagen: ${image.alt}`}><Image className="piece-slider-image" key={image.src} src={image.src} alt={image.alt} fill priority={current === 0} sizes="(max-width: 760px) 94vw, 62vw" quality={92} /></button>
       {images.length > 1 && <>
         <button className="piece-slider-arrow is-previous" type="button" onClick={() => move(-1)} aria-label="Imagen anterior">←</button>
         <button className="piece-slider-arrow is-next" type="button" onClick={() => move(1)} aria-label="Imagen siguiente">→</button>
@@ -46,5 +55,6 @@ export function ArtworkSlider({ images, code }: { images: ArtworkImage[]; code: 
     {images.length > 1 && <div className="piece-slider-track" aria-label="Vistas de la pieza">
       {images.map((item, index) => <button className={index === current ? "is-current" : ""} type="button" onClick={() => setCurrent(index)} aria-label={`Ver imagen ${index + 1}`} aria-pressed={index === current} key={item.src}><Image src={item.src} alt="" fill sizes="80px" quality={75} /></button>)}
     </div>}
+    {zoomOpen && <div className="artwork-lightbox" role="dialog" aria-modal="true" aria-label={`Vista ampliada: ${image.alt}`} onClick={() => setZoomOpen(false)}><button className="artwork-lightbox-close" type="button" onClick={() => setZoomOpen(false)} aria-label="Cerrar imagen">Cerrar ×</button><div className="artwork-lightbox-image" onClick={(event) => event.stopPropagation()}><Image src={image.src} alt={image.alt} width={image.width} height={image.height} sizes="96vw" quality={95} priority /></div></div>}
   </div>;
 }

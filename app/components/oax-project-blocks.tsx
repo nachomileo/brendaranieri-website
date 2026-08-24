@@ -1,11 +1,10 @@
 import type { ProjectRecord } from "../../lib/projects";
+import { ZoomableArtworkImage } from "./zoomable-artwork-image";
 
 type OaxImage = { src: string; alt: string };
 
 function GalleryImage({ image }: { image: OaxImage }) {
-  // Natural dimensions preserve every landscape, portrait and scanned frame.
-  // eslint-disable-next-line @next/next/no-img-element -- Mixed-ratio preoptimized archive images intentionally render at their natural dimensions.
-  return <img src={image.src} alt={image.alt} loading="lazy" decoding="async" />;
+  return <ZoomableArtworkImage image={image} sizes="(max-width: 760px) 100vw, 72vw" />;
 }
 
 function InformationIndex({ label, items }: { label: string; items: Array<[string, string]> }) {
@@ -32,7 +31,7 @@ export function OaxProjectBlocks({ project, images, rayograms, fieldArchive }: {
   return <div className="oax-block-system">
     <nav className="oax-block-index" aria-label="Índice del proyecto OAX-CAR-38-57">
       <a href="#oax-project"><span>01</span><strong>El proyecto</strong><small>Open Studio · marzo 2026</small></a>
-      <a href="#oax-situated-archive"><span>02</span><strong>Archivo investigación situada</strong><small>Registros del proceso en 35 mm</small></a>
+      <a href="#oax-situated-archive"><span>02</span><strong>Archivo investigación material de Carabanchel</strong><small>Registros del proceso en 35 mm</small></a>
       <a href="#oax-rayograms"><span>03</span><strong>Archivo rayogramas de agua</strong><small>Procesos de co-creación</small></a>
     </nav>
 
@@ -48,7 +47,7 @@ export function OaxProjectBlocks({ project, images, rayograms, fieldArchive }: {
     </section>
 
     <section className="oax-compact-block" id="oax-situated-archive" aria-labelledby="oax-archive-title">
-      <header><span>02</span><h2 id="oax-archive-title">Archivo investigación situada</h2><div><p>Fotografías analógicas de 35 mm tomadas durante el desarrollo del proyecto. El archivo reúne escenas de producción en el taller, pruebas sistemáticas con materiales recolectados del paisaje urbano, visitas a los talleres del barrio para recuperar materia y registros de la preparación de la cocción a leña de algunas de las piezas.</p></div></header>
+      <header><span>02</span><h2 id="oax-archive-title">Archivo investigación material de Carabanchel</h2><div><p>Fotografías analógicas de 35 mm tomadas durante el desarrollo del proyecto. El archivo reúne escenas de producción en el taller, pruebas sistemáticas con materiales recolectados del paisaje urbano, visitas a los talleres del barrio para recuperar materia y registros de la preparación de la cocción a leña de algunas de las piezas.</p></div></header>
       <InformationIndex label="Índice del archivo de investigación situada" items={[
         ["Soporte", "Fotografía analógica de 35 mm"], ["Contexto", "Taller y paisaje urbano de Carabanchel"], ["Procesos", "Recolección, pruebas de materiales y producción"], ["Cocción", "Preparación y cocción a leña"],
       ]} />
