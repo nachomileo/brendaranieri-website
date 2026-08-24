@@ -1,0 +1,47 @@
+# Dependencies
+node_modules/
+.pnpm-store/
+
+# Local source content (original, unoptimized media)
+/content/
+
+# Next.js build output
+.next/
+out/
+
+# Production builds and test coverage
+build/
+dist/
+coverage/
+
+# Caches
+.turbo/
+.cache/
+__pycache__/
+*.py[cod]
+*.tsbuildinfo
+next-env.d.ts
+
+# Environment variables
+.env
+.env.*
+!.env.example
+!.env.*.example
+
+# Deployment platforms
+.vercel/
+
+# Logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# Editor and operating-system files
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+*.swp
+*~

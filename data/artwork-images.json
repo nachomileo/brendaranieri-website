@@ -1,0 +1,1123 @@
+{
+  "terra": [
+    {
+      "source": "Terra_Brenda Ranieri_2026_125.png",
+      "alt": "Terra, vista principal",
+      "width": 2400,
+      "height": 1800,
+      "file": "terra-brenda-ranieri-2026-125.webp"
+    },
+    {
+      "source": "Terra_Brenda Ranieri_2026_127.png",
+      "alt": "Terra, vista lateral",
+      "width": 1800,
+      "height": 2400,
+      "file": "terra-brenda-ranieri-2026-127.webp"
+    },
+    {
+      "source": "Terra_Brenda Ranieri_2026_129.png",
+      "alt": "Terra, detalle superior",
+      "width": 2400,
+      "height": 1800,
+      "file": "terra-brenda-ranieri-2026-129.webp"
+    }
+  ],
+  "vasija": [
+    {
+      "source": "Terra_Brenda Ranieri_2026_94.png",
+      "alt": "Vasija, vista principal",
+      "width": 2400,
+      "height": 1800,
+      "file": "terra-brenda-ranieri-2026-94.webp"
+    },
+    {
+      "source": "Terra_Brenda Ranieri_2026_93.png",
+      "alt": "Vasija, vista lateral",
+      "width": 2400,
+      "height": 1800,
+      "file": "terra-brenda-ranieri-2026-93.webp"
+    },
+    {
+      "source": "Terra_Brenda Ranieri_2026_98.png",
+      "alt": "Vasija, vista completa",
+      "width": 2400,
+      "height": 1800,
+      "file": "terra-brenda-ranieri-2026-98.webp"
+    }
+  ],
+  "vasija-2": [
+    {
+      "source": "Terra_Brenda Ranieri_2026_37_extended.png",
+      "alt": "Vasija 2, vista principal",
+      "width": 1024,
+      "height": 1536,
+      "file": "terra-brenda-ranieri-2026-37-extended.webp"
+    },
+    {
+      "source": "Terra_Brenda Ranieri_2026_11.png",
+      "alt": "Vasija 2, detalle de superficie",
+      "width": 2400,
+      "height": 1800,
+      "file": "terra-brenda-ranieri-2026-11.webp"
+    },
+    {
+      "source": "Terra_Brenda Ranieri_2026_20.png",
+      "alt": "Vasija 2, vista frontal",
+      "width": 1800,
+      "height": 2400,
+      "file": "terra-brenda-ranieri-2026-20.webp"
+    },
+    {
+      "source": "Terra_Brenda Ranieri_2026_8.png",
+      "alt": "Vasija 2, vista posterior",
+      "width": 2400,
+      "height": 1800,
+      "file": "terra-brenda-ranieri-2026-8.webp"
+    }
+  ],
+  "black-collection": [
+    {
+      "source": "P1210083.png",
+      "alt": "Black collection, conjunto de piezas",
+      "width": 2400,
+      "height": 1867,
+      "file": "p1210083.webp"
+    },
+    {
+      "source": "P1210010.jpg",
+      "alt": "Black collection, copa con asa orgánica",
+      "width": 2400,
+      "height": 1800,
+      "file": "p1210010.webp"
+    },
+    {
+      "source": "P1210087.png",
+      "alt": "Black collection, vasija negra",
+      "width": 1803,
+      "height": 2400,
+      "file": "p1210087.webp"
+    },
+    {
+      "source": "P1210093.png",
+      "alt": "Black collection, cuenco con asas",
+      "width": 2141,
+      "height": 2400,
+      "file": "p1210093.webp"
+    },
+    {
+      "source": "colección black_Brenda Ranieri_1 Large.jpeg",
+      "alt": "Black collection, copa atravesada por esmalte",
+      "width": 1280,
+      "height": 960,
+      "file": "coleccion-black-brenda-ranieri-1-large.webp"
+    },
+    {
+      "source": "colección black_Brenda Ranieri_14 Large.jpeg",
+      "alt": "Black collection, copa escultórica",
+      "width": 1280,
+      "height": 960,
+      "file": "coleccion-black-brenda-ranieri-14-large.webp"
+    },
+    {
+      "source": "colección black_Brenda Ranieri_15 Large.jpeg",
+      "alt": "Black collection, copa escultórica en contexto",
+      "width": 1280,
+      "height": 960,
+      "file": "coleccion-black-brenda-ranieri-15-large.webp"
+    },
+    {
+      "source": "colección black_Brenda Ranieri_7 Large.jpeg",
+      "alt": "Black collection, vasija baja",
+      "width": 1280,
+      "height": 960,
+      "file": "coleccion-black-brenda-ranieri-7-large.webp"
+    },
+    {
+      "source": "P1210087_.png",
+      "alt": "Obra 4_family, vista 9",
+      "width": 2400,
+      "height": 2228,
+      "file": "p1210087-2.webp"
+    }
+  ],
+  "jarron": [
+    {
+      "source": "colección black_Brenda Ranieri_19.png",
+      "alt": "Jarrón, vista principal",
+      "width": 2400,
+      "height": 1800,
+      "file": "coleccion-black-brenda-ranieri-19.webp"
+    },
+    {
+      "source": "colección black_Brenda Ranieri_17.png",
+      "alt": "Jarrón, vista superior",
+      "width": 2400,
+      "height": 1800,
+      "file": "coleccion-black-brenda-ranieri-17.webp"
+    },
+    {
+      "source": "colección black_Brenda Ranieri_18.png",
+      "alt": "Jarrón, detalle del borde y el asa metálica",
+      "width": 2400,
+      "height": 1800,
+      "file": "coleccion-black-brenda-ranieri-18.webp"
+    }
+  ],
+  "jarron-2": [
+    {
+      "source": "colección black_Brenda Ranieri_11.png",
+      "alt": "Jarrón, vista principal",
+      "width": 2400,
+      "height": 1800,
+      "file": "coleccion-black-brenda-ranieri-11.webp"
+    },
+    {
+      "source": "colección black_Brenda Ranieri_8 Large.jpeg",
+      "alt": "Jarrón, vista lateral",
+      "width": 1280,
+      "height": 960,
+      "file": "coleccion-black-brenda-ranieri-8-large.webp"
+    },
+    {
+      "source": "colección black_Brenda Ranieri_9.png",
+      "alt": "Jarrón, vista superior",
+      "width": 2400,
+      "height": 1800,
+      "file": "coleccion-black-brenda-ranieri-9.webp"
+    }
+  ],
+  "materia-solidificandose": [
+    {
+      "source": "Botijos_San Isidro_Brenda Ranieri_5.png",
+      "alt": "Materia solidificándose, irme ablandándose, familia de botijos",
+      "width": 2400,
+      "height": 1800,
+      "file": "botijos-san-isidro-brenda-ranieri-5.webp"
+    },
+    {
+      "source": "Botijos_San Isidro_Brenda Ranieri_2.png",
+      "alt": "Botijo de arcilla local de Carabanchel sobre ladrillo",
+      "width": 2400,
+      "height": 1800,
+      "file": "botijos-san-isidro-brenda-ranieri-2.webp"
+    },
+    {
+      "source": "Botijos_San Isidro_Brenda Ranieri_28.png",
+      "alt": "Botijo de arcilla local de Carabanchel, vista frontal",
+      "width": 2400,
+      "height": 1800,
+      "file": "botijos-san-isidro-brenda-ranieri-28.webp"
+    },
+    {
+      "source": "Botijos_San Isidro_Brenda Ranieri_29.png",
+      "alt": "Botijo de arcilla local clara, vista frontal",
+      "width": 2400,
+      "height": 1800,
+      "file": "botijos-san-isidro-brenda-ranieri-29.webp"
+    },
+    {
+      "source": "Botijos_San Isidro_Brenda Ranieri_2_7.png",
+      "alt": "Botijo con metal y esmalte, vista lateral",
+      "width": 2400,
+      "height": 1800,
+      "file": "botijos-san-isidro-brenda-ranieri-2-7.webp"
+    },
+    {
+      "source": "Botijos_San Isidro_Brenda Ranieri_2_4.png",
+      "alt": "Botijo con metal y esmalte, vista superior",
+      "width": 2400,
+      "height": 1800,
+      "file": "botijos-san-isidro-brenda-ranieri-2-4.webp"
+    },
+    {
+      "source": "Botijos_San Isidro_Brenda Ranieri_33.png",
+      "alt": "Detalle de superficie de un botijo de arcilla local",
+      "width": 2400,
+      "height": 1800,
+      "file": "botijos-san-isidro-brenda-ranieri-33.webp"
+    },
+    {
+      "source": "Botijos_San Isidro_Brenda Ranieri_2_6.png",
+      "alt": "Obra 7_family, vista 8",
+      "width": 2400,
+      "height": 1800,
+      "file": "botijos-san-isidro-brenda-ranieri-2-6.webp"
+    },
+    {
+      "source": "Botijos_San Isidro_Brenda Ranieri_30.png",
+      "alt": "Obra 7_family, vista 9",
+      "width": 2400,
+      "height": 1800,
+      "file": "botijos-san-isidro-brenda-ranieri-30.webp"
+    },
+    {
+      "source": "Botijos_San Isidro_Brenda Ranieri_21.png",
+      "alt": "Obra 7_family, vista 10",
+      "width": 2400,
+      "height": 1800,
+      "file": "botijos-san-isidro-brenda-ranieri-21.webp"
+    }
+  ],
+  "vasija-3": [
+    {
+      "source": "Cosas que cargan cosas_Brenda Ranieri_54.png",
+      "alt": "Vasija, vista principal",
+      "width": 2400,
+      "height": 1800,
+      "file": "cosas-que-cargan-cosas-brenda-ranieri-54.webp"
+    },
+    {
+      "source": "Cosas que cargan cosas_Brenda Ranieri_45.png",
+      "alt": "Vasija, detalle del asa y la superficie",
+      "width": 2400,
+      "height": 1800,
+      "file": "cosas-que-cargan-cosas-brenda-ranieri-45.webp"
+    },
+    {
+      "source": "Cosas que cargan cosas_Brenda Ranieri_56.png",
+      "alt": "Vasija, detalle del interior esmaltado",
+      "width": 2400,
+      "height": 1800,
+      "file": "cosas-que-cargan-cosas-brenda-ranieri-56.webp"
+    }
+  ],
+  "antes-del-rayo": [
+    {
+      "source": "Cosas que cargan cosas_Brenda Ranieri_15.png",
+      "alt": "Antes del rayo, vista principal",
+      "width": 2400,
+      "height": 1800,
+      "file": "cosas-que-cargan-cosas-brenda-ranieri-15.webp"
+    },
+    {
+      "source": "Cosas que cargan cosas_Brenda Ranieri_24.png",
+      "alt": "Antes del rayo, vista lateral",
+      "width": 2400,
+      "height": 1800,
+      "file": "cosas-que-cargan-cosas-brenda-ranieri-24.webp"
+    },
+    {
+      "source": "Cosas que cargan cosas_Brenda Ranieri_25.png",
+      "alt": "Antes del rayo, vista superior",
+      "width": 2400,
+      "height": 1800,
+      "file": "cosas-que-cargan-cosas-brenda-ranieri-25.webp"
+    }
+  ],
+  "vasija-ladrillo": [
+    {
+      "source": "OAX-CAR-38-57_Brenda Ranieri_15 Large.jpeg",
+      "alt": "vasija ladrillo, vista 1",
+      "width": 1280,
+      "height": 960,
+      "file": "oax-car-38-57-brenda-ranieri-15-large.webp"
+    },
+    {
+      "source": "OAX-CAR-38-57_Brenda Ranieri_16 Large.jpeg",
+      "alt": "vasija ladrillo, vista 2",
+      "width": 1280,
+      "height": 960,
+      "file": "oax-car-38-57-brenda-ranieri-16-large.webp"
+    },
+    {
+      "source": "OAX-CAR-38-57_Brenda Ranieri_13 Large.jpeg",
+      "alt": "vasija ladrillo, vista 3",
+      "width": 1280,
+      "height": 960,
+      "file": "oax-car-38-57-brenda-ranieri-13-large.webp"
+    }
+  ],
+  "vasija-con-metal": [
+    {
+      "source": "OAX-CAR-38-57_Brenda Ranieri_126.png",
+      "alt": "vasija con metal, vista 1",
+      "width": 2400,
+      "height": 1800,
+      "file": "oax-car-38-57-brenda-ranieri-126.webp"
+    },
+    {
+      "source": "OAX-CAR-38-57_Brenda Ranieri_127.png",
+      "alt": "vasija con metal, vista 2",
+      "width": 2400,
+      "height": 1800,
+      "file": "oax-car-38-57-brenda-ranieri-127.webp"
+    },
+    {
+      "source": "OAX-CAR-38-57_Brenda Ranieri_124.png",
+      "alt": "vasija con metal, vista 3",
+      "width": 2400,
+      "height": 1800,
+      "file": "oax-car-38-57-brenda-ranieri-124.webp"
+    }
+  ],
+  "vasija-con-piedras": [
+    {
+      "source": "OAX-CAR-38-57_Brenda Ranieri_101.png",
+      "alt": "vasija con piedras, vista 1",
+      "width": 2400,
+      "height": 1800,
+      "file": "oax-car-38-57-brenda-ranieri-101.webp"
+    },
+    {
+      "source": "OAX-CAR-38-57_Brenda Ranieri_107.png",
+      "alt": "vasija con piedras, vista 2",
+      "width": 2400,
+      "height": 1800,
+      "file": "oax-car-38-57-brenda-ranieri-107.webp"
+    },
+    {
+      "source": "OAX-CAR-38-57_Brenda Ranieri_108.png",
+      "alt": "vasija con piedras, vista 3",
+      "width": 2400,
+      "height": 1800,
+      "file": "oax-car-38-57-brenda-ranieri-108.webp"
+    }
+  ],
+  "cuenco-con-metal": [
+    {
+      "source": "OAX-CAR-38-57_Brenda Ranieri_92.png",
+      "alt": "cuenco con metal, vista 1",
+      "width": 2400,
+      "height": 1800,
+      "file": "oax-car-38-57-brenda-ranieri-92.webp"
+    },
+    {
+      "source": "OAX-CAR-38-57_Brenda Ranieri_98.png",
+      "alt": "cuenco con metal, vista 2",
+      "width": 2400,
+      "height": 1800,
+      "file": "oax-car-38-57-brenda-ranieri-98.webp"
+    },
+    {
+      "source": "OAX-CAR-38-57_Brenda Ranieri_97.png",
+      "alt": "cuenco con metal, vista 3",
+      "width": 2400,
+      "height": 1800,
+      "file": "oax-car-38-57-brenda-ranieri-97.webp"
+    }
+  ],
+  "vasija-con-piedras-2": [
+    {
+      "source": "OAX-CAR-38-57_Brenda Ranieri_77.png",
+      "alt": "vasija con piedras 2, vista 1",
+      "width": 2400,
+      "height": 1800,
+      "file": "oax-car-38-57-brenda-ranieri-77.webp"
+    },
+    {
+      "source": "OAX-CAR-38-57_Brenda Ranieri_76.png",
+      "alt": "vasija con piedras 2, vista 2",
+      "width": 2400,
+      "height": 1800,
+      "file": "oax-car-38-57-brenda-ranieri-76.webp"
+    },
+    {
+      "source": "OAX-CAR-38-57_Brenda Ranieri_75.png",
+      "alt": "vasija con piedras 2, vista 3",
+      "width": 2400,
+      "height": 1800,
+      "file": "oax-car-38-57-brenda-ranieri-75.webp"
+    }
+  ],
+  "vasija-arcilla-local": [
+    {
+      "source": "OAX-CAR-38-57_Brenda Ranieri_65.png",
+      "alt": "vasija arcilla local, vista 1",
+      "width": 2400,
+      "height": 1800,
+      "file": "oax-car-38-57-brenda-ranieri-65.webp"
+    },
+    {
+      "source": "OAX-CAR-38-57_Brenda Ranieri_64.png",
+      "alt": "vasija arcilla local, vista 2",
+      "width": 2400,
+      "height": 1800,
+      "file": "oax-car-38-57-brenda-ranieri-64.webp"
+    },
+    {
+      "source": "OAX-CAR-38-57_Brenda Ranieri_66.png",
+      "alt": "vasija arcilla local, vista 3",
+      "width": 2400,
+      "height": 1800,
+      "file": "oax-car-38-57-brenda-ranieri-66.webp"
+    }
+  ],
+  "vasija-piedras-naturales": [
+    {
+      "source": "OAX-CAR-38-57_Brenda Ranieri_72.png",
+      "alt": "vasija piedras naturales, vista 1",
+      "width": 2400,
+      "height": 1800,
+      "file": "oax-car-38-57-brenda-ranieri-72.webp"
+    },
+    {
+      "source": "OAX-CAR-38-57_Brenda Ranieri_70.png",
+      "alt": "vasija piedras naturales, vista 2",
+      "width": 2400,
+      "height": 1800,
+      "file": "oax-car-38-57-brenda-ranieri-70.webp"
+    },
+    {
+      "source": "OAX-CAR-38-57_Brenda Ranieri_71.png",
+      "alt": "vasija piedras naturales, vista 3",
+      "width": 2400,
+      "height": 1800,
+      "file": "oax-car-38-57-brenda-ranieri-71.webp"
+    }
+  ],
+  "vasija-arcilla-local-2": [
+    {
+      "source": "OAX-CAR-38-57_Brenda Ranieri_55.png",
+      "alt": "vasija arcilla local 2, vista 1",
+      "width": 2400,
+      "height": 1800,
+      "file": "oax-car-38-57-brenda-ranieri-55.webp"
+    },
+    {
+      "source": "OAX-CAR-38-57_Brenda Ranieri_61.png",
+      "alt": "vasija arcilla local 2, vista 2",
+      "width": 2400,
+      "height": 1800,
+      "file": "oax-car-38-57-brenda-ranieri-61.webp"
+    },
+    {
+      "source": "OAX-CAR-38-57_Brenda Ranieri_56.png",
+      "alt": "vasija arcilla local 2, vista 3",
+      "width": 2400,
+      "height": 1800,
+      "file": "oax-car-38-57-brenda-ranieri-56.webp"
+    }
+  ],
+  "sin-titulo-i": [
+    {
+      "source": "OAX-CAR-38-57_Brenda Ranieri_1.png",
+      "alt": "sin titulo i, vista 1",
+      "width": 1800,
+      "height": 2400,
+      "file": "oax-car-38-57-brenda-ranieri-1.webp"
+    },
+    {
+      "source": "OAX-CAR-38-57_Brenda Ranieri_7.png",
+      "alt": "sin titulo i, vista 2",
+      "width": 2400,
+      "height": 1800,
+      "file": "oax-car-38-57-brenda-ranieri-7.webp"
+    },
+    {
+      "source": "OAX-CAR-38-57_Brenda Ranieri_2.png",
+      "alt": "sin titulo i, vista 3",
+      "width": 1800,
+      "height": 2400,
+      "file": "oax-car-38-57-brenda-ranieri-2.webp"
+    }
+  ],
+  "vasija-negra": [
+    {
+      "source": "Jarrones_Anarqueologias_Brenda Ranieri_19.png",
+      "alt": "vasija negra, vista 1",
+      "width": 2400,
+      "height": 1800,
+      "file": "jarrones-anarqueologias-brenda-ranieri-19.webp"
+    },
+    {
+      "source": "Jarrones_Anarqueologias_Brenda Ranieri_16.png",
+      "alt": "vasija negra, vista 2",
+      "width": 2400,
+      "height": 1800,
+      "file": "jarrones-anarqueologias-brenda-ranieri-16.webp"
+    },
+    {
+      "source": "Jarrones_Anarqueologias_Brenda Ranieri_20.png",
+      "alt": "vasija negra, vista 3",
+      "width": 2400,
+      "height": 1800,
+      "file": "jarrones-anarqueologias-brenda-ranieri-20.webp"
+    }
+  ],
+  "piedras-de-diseno-propio": [
+    {
+      "source": "Jarrones_Anarqueologias_Brenda Ranieri_14.png",
+      "alt": "piedras de diseno propio, vista 1",
+      "width": 2400,
+      "height": 1800,
+      "file": "jarrones-anarqueologias-brenda-ranieri-14.webp"
+    },
+    {
+      "source": "Piezas_Anarqueologias_Brenda Ranieri.jpg",
+      "alt": "piedras de diseno propio, vista 2",
+      "width": 1800,
+      "height": 2400,
+      "file": "piezas-anarqueologias-brenda-ranieri.webp"
+    },
+    {
+      "source": "Jarrones_Anarqueologias_Brenda Ranieri_15.png",
+      "alt": "piedras de diseno propio, vista 3",
+      "width": 1800,
+      "height": 2400,
+      "file": "jarrones-anarqueologias-brenda-ranieri-15.webp"
+    },
+    {
+      "source": "Jarrones_Anarqueologias_Brenda Ranieri_1.png",
+      "alt": "piedras de diseno propio, vista 4",
+      "width": 2400,
+      "height": 1800,
+      "file": "jarrones-anarqueologias-brenda-ranieri-1.webp"
+    },
+    {
+      "source": "Jarrones_Anarqueologias_Brenda Ranieri_6.png",
+      "alt": "piedras de diseno propio, vista 5",
+      "width": 2400,
+      "height": 1800,
+      "file": "jarrones-anarqueologias-brenda-ranieri-6.webp"
+    },
+    {
+      "source": "Jarrones_Anarqueologias_Brenda Ranieri_10.png",
+      "alt": "piedras de diseno propio, vista 6",
+      "width": 2400,
+      "height": 1800,
+      "file": "jarrones-anarqueologias-brenda-ranieri-10.webp"
+    },
+    {
+      "source": "Jarrones_Anarqueologias_Brenda Ranieri_9.png",
+      "alt": "piedras de diseno propio, vista 7",
+      "width": 2400,
+      "height": 1800,
+      "file": "jarrones-anarqueologias-brenda-ranieri-9.webp"
+    },
+    {
+      "source": "Jarrones_Anarqueologias_Brenda Ranieri.png",
+      "alt": "piedras de diseno propio, vista 8",
+      "width": 2400,
+      "height": 1800,
+      "file": "jarrones-anarqueologias-brenda-ranieri.webp"
+    },
+    {
+      "source": "Piezas_Anarqueologias_Brenda Ranieri_15.jpg",
+      "alt": "piedras de diseno propio, vista 9",
+      "width": 2400,
+      "height": 1800,
+      "file": "piezas-anarqueologias-brenda-ranieri-15.webp"
+    }
+  ],
+  "juego-de-candelabros": [
+    {
+      "source": "Lo que queda_Brenda Ranieri.jpg",
+      "alt": "juego de candelabros, vista 1",
+      "width": 2400,
+      "height": 1800,
+      "file": "lo-que-queda-brenda-ranieri.webp"
+    },
+    {
+      "source": "Juego candelabros_28.png",
+      "alt": "juego de candelabros, vista 2",
+      "width": 2400,
+      "height": 1800,
+      "file": "juego-candelabros-28.webp"
+    },
+    {
+      "source": "Juego candelabros_29.png",
+      "alt": "juego de candelabros, vista 3",
+      "width": 2400,
+      "height": 1800,
+      "file": "juego-candelabros-29.webp"
+    },
+    {
+      "source": "Juego candelabros_4.png",
+      "alt": "juego de candelabros, vista 4",
+      "width": 2400,
+      "height": 1800,
+      "file": "juego-candelabros-4.webp"
+    },
+    {
+      "source": "Juego candelabros_22.png",
+      "alt": "juego de candelabros, vista 5",
+      "width": 2400,
+      "height": 1800,
+      "file": "juego-candelabros-22.webp"
+    },
+    {
+      "source": "Juego candelabros_26.png",
+      "alt": "juego de candelabros, vista 6",
+      "width": 1800,
+      "height": 2400,
+      "file": "juego-candelabros-26.webp"
+    }
+  ],
+  "jarrita-y-cuncas": [
+    {
+      "source": "Jarrita y cuncas_ceramica_Brenda Ranieri_23.png",
+      "alt": "jarrita y cuncas, vista 1",
+      "width": 2400,
+      "height": 1800,
+      "file": "jarrita-y-cuncas-ceramica-brenda-ranieri-23.webp"
+    },
+    {
+      "source": "Jarrita y cuncas_ceramica_Brenda Ranieri_33.png",
+      "alt": "jarrita y cuncas, vista 2",
+      "width": 2400,
+      "height": 1800,
+      "file": "jarrita-y-cuncas-ceramica-brenda-ranieri-33.webp"
+    },
+    {
+      "source": "Jarrita y cuncas_ceramica_Brenda Ranieri_30.png",
+      "alt": "jarrita y cuncas, vista 3",
+      "width": 2400,
+      "height": 1800,
+      "file": "jarrita-y-cuncas-ceramica-brenda-ranieri-30.webp"
+    },
+    {
+      "source": "Jarrita y cuncas_ceramica_Brenda Ranieri_36.png",
+      "alt": "jarrita y cuncas, vista 4",
+      "width": 1800,
+      "height": 2400,
+      "file": "jarrita-y-cuncas-ceramica-brenda-ranieri-36.webp"
+    }
+  ],
+  "vasija-con-asas-i": [
+    {
+      "source": "Lo que queda_Brenda Ranieri_109.jpg",
+      "alt": "vasija con asas i, vista 1",
+      "width": 1800,
+      "height": 2400,
+      "file": "lo-que-queda-brenda-ranieri-109.webp"
+    },
+    {
+      "source": "Lo que queda_Brenda Ranieri_107.jpg",
+      "alt": "vasija con asas i, vista 2",
+      "width": 1800,
+      "height": 2400,
+      "file": "lo-que-queda-brenda-ranieri-107.webp"
+    },
+    {
+      "source": "Lo que queda_Brenda Ranieri_103.jpg",
+      "alt": "vasija con asas i, vista 3",
+      "width": 1800,
+      "height": 2400,
+      "file": "lo-que-queda-brenda-ranieri-103.webp"
+    }
+  ],
+  "vasija-con-asas-ii": [
+    {
+      "source": "Lo que queda_Brenda Ranieri_23.jpg",
+      "alt": "vasija con asas ii, vista 1",
+      "width": 2400,
+      "height": 1800,
+      "file": "lo-que-queda-brenda-ranieri-23.webp"
+    },
+    {
+      "source": "Lo que queda_Brenda Ranieri_29.jpg",
+      "alt": "vasija con asas ii, vista 2",
+      "width": 2400,
+      "height": 1800,
+      "file": "lo-que-queda-brenda-ranieri-29.webp"
+    },
+    {
+      "source": "Lo que queda_Brenda Ranieri_36.jpg",
+      "alt": "vasija con asas ii, vista 3",
+      "width": 1800,
+      "height": 2400,
+      "file": "lo-que-queda-brenda-ranieri-36.webp"
+    }
+  ],
+  "vasija-i": [
+    {
+      "source": "P1210102.png",
+      "alt": "vasija i, vista 1",
+      "width": 1815,
+      "height": 2400,
+      "file": "p1210102.webp"
+    },
+    {
+      "source": "P1210105.png",
+      "alt": "vasija i, vista 2",
+      "width": 2400,
+      "height": 1800,
+      "file": "p1210105.webp"
+    },
+    {
+      "source": "P1210101.png",
+      "alt": "vasija i, vista 3",
+      "width": 1779,
+      "height": 2400,
+      "file": "p1210101.webp"
+    }
+  ],
+  "vasija-ii": [
+    {
+      "source": "P1210117.png",
+      "alt": "vasija ii, vista 1",
+      "width": 2400,
+      "height": 1988,
+      "file": "p1210117.webp"
+    },
+    {
+      "source": "P1210120.png",
+      "alt": "vasija ii, vista 2",
+      "width": 2087,
+      "height": 2400,
+      "file": "p1210120.webp"
+    },
+    {
+      "source": "P1210123.png",
+      "alt": "vasija ii, vista 3",
+      "width": 2400,
+      "height": 1876,
+      "file": "p1210123.webp"
+    }
+  ],
+  "vasija-iii": [
+    {
+      "source": "P1210148.png",
+      "alt": "vasija iii, vista 1",
+      "width": 2400,
+      "height": 1800,
+      "file": "p1210148.webp"
+    },
+    {
+      "source": "P1210153.png",
+      "alt": "vasija iii, vista 2",
+      "width": 1683,
+      "height": 2400,
+      "file": "p1210153.webp"
+    }
+  ],
+  "figura": [
+    {
+      "source": "P1210167.png",
+      "alt": "figura, vista 1",
+      "width": 1750,
+      "height": 2400,
+      "file": "p1210167.webp"
+    },
+    {
+      "source": "P1210168.png",
+      "alt": "figura, vista 2",
+      "width": 1831,
+      "height": 2400,
+      "file": "p1210168.webp"
+    },
+    {
+      "source": "P1210165.png",
+      "alt": "figura, vista 3",
+      "width": 2400,
+      "height": 2156,
+      "file": "p1210165.webp"
+    }
+  ],
+  "sin-titulo-ii": [
+    {
+      "source": "P1210044_gif.jpg",
+      "alt": "sin titulo ii, vista 1",
+      "width": 2205,
+      "height": 2400,
+      "file": "p1210044-gif.webp"
+    },
+    {
+      "source": "P1210045_gif.jpg",
+      "alt": "sin titulo ii, vista 2",
+      "width": 2205,
+      "height": 2400,
+      "file": "p1210045-gif.webp"
+    },
+    {
+      "source": "ezgif.com-animated-gif-maker.gif",
+      "alt": "sin titulo ii, vista 3",
+      "width": 1764,
+      "height": 1920,
+      "file": "ezgif-com-animated-gif-maker.webp"
+    }
+  ],
+  "memorias-de-agua-y-barro": [
+    {
+      "source": "Memorias de agua y barro_Brenda Ranieri_Taller.jpg",
+      "alt": "memorias de agua y barro, vista 1",
+      "width": 2400,
+      "height": 1800,
+      "file": "memorias-de-agua-y-barro-brenda-ranieri-taller.webp"
+    },
+    {
+      "source": "P1210018.jpg",
+      "alt": "memorias de agua y barro, vista 2",
+      "width": 2400,
+      "height": 1800,
+      "file": "p1210018.webp"
+    },
+    {
+      "source": "P1210021.jpg",
+      "alt": "memorias de agua y barro, vista 3",
+      "width": 2400,
+      "height": 1800,
+      "file": "p1210021.webp"
+    }
+  ],
+  "hypnos": [
+    {
+      "source": "Hypnos_Brenda Ranieri.jpg",
+      "alt": "hypnos, vista 1",
+      "width": 2400,
+      "height": 1800,
+      "file": "hypnos-brenda-ranieri.webp"
+    },
+    {
+      "source": "Angel.jpg",
+      "alt": "hypnos, vista 2",
+      "width": 2400,
+      "height": 1800,
+      "file": "angel.webp"
+    },
+    {
+      "source": "Angel 2.jpg",
+      "alt": "hypnos, vista 3",
+      "width": 2400,
+      "height": 1800,
+      "file": "angel-2.webp"
+    }
+  ],
+  "caldero": [
+    {
+      "source": "Caldero_Brenda Ranieri.jpg",
+      "alt": "caldero, vista 1",
+      "width": 2400,
+      "height": 1800,
+      "file": "caldero-brenda-ranieri.webp"
+    },
+    {
+      "source": "Caldero 6.jpg",
+      "alt": "caldero, vista 2",
+      "width": 2400,
+      "height": 1800,
+      "file": "caldero-6.webp"
+    },
+    {
+      "source": "Caldero 5.jpg",
+      "alt": "caldero, vista 3",
+      "width": 2400,
+      "height": 1800,
+      "file": "caldero-5.webp"
+    }
+  ],
+  "senora-de-hierro": [
+    {
+      "source": "Señoras de hierro 18.jpg",
+      "alt": "senora de hierro, vista 1",
+      "width": 2400,
+      "height": 1800,
+      "file": "senoras-de-hierro-18.webp"
+    },
+    {
+      "source": "Señoras de hierro 21.jpg",
+      "alt": "senora de hierro, vista 2",
+      "width": 2400,
+      "height": 1800,
+      "file": "senoras-de-hierro-21.webp"
+    },
+    {
+      "source": "Señoras de hierro 14.jpg",
+      "alt": "senora de hierro, vista 3",
+      "width": 2400,
+      "height": 1800,
+      "file": "senoras-de-hierro-14.webp"
+    }
+  ],
+  "el-viajero": [
+    {
+      "source": "El viajero - Ceramica -Brenda Ranieri.png",
+      "alt": "el viajero, vista 1",
+      "width": 2400,
+      "height": 1800,
+      "file": "el-viajero-ceramica-brenda-ranieri.webp"
+    },
+    {
+      "source": "Ceramica-2024-Brenda Ranieri 10.png",
+      "alt": "el viajero, vista 2",
+      "width": 2400,
+      "height": 1800,
+      "file": "ceramica-2024-brenda-ranieri-10.webp"
+    }
+  ],
+  "la-forma-del-agua-quieta-obra": [
+    {
+      "source": "La forma del agua quieta_072026_Brenda Ranieri_Lapislazuli_3.png",
+      "alt": "Obra 35, vista 1",
+      "width": 2400,
+      "height": 1800,
+      "file": "la-forma-del-agua-quieta-072026-brenda-ranieri-lapislazuli-3.webp"
+    },
+    {
+      "source": "3_La forma del agua quieta_BrendaRanieri_vertical.png",
+      "alt": "la forma del agua quieta obra, vista 1",
+      "width": 1080,
+      "height": 1920,
+      "file": "3-la-forma-del-agua-quieta-brendaranieri-vertical.webp"
+    },
+    {
+      "source": "La forma del agua quieta_Brenda Ranieri8.png",
+      "alt": "la forma del agua quieta obra, vista 2",
+      "width": 2400,
+      "height": 1800,
+      "file": "la-forma-del-agua-quieta-brenda-ranieri8.webp"
+    },
+    {
+      "source": "La forma del agua quieta_072026_Brenda Ranieri_Lapislazuli_26.png",
+      "alt": "Obra 35, vista 4",
+      "width": 1800,
+      "height": 2400,
+      "file": "la-forma-del-agua-quieta-072026-brenda-ranieri-lapislazuli-26.webp"
+    },
+    {
+      "source": "La forma del agua quieta_Brenda Ranieri_Lapislazuli28.png",
+      "alt": "Obra 35, vista 5",
+      "width": 1800,
+      "height": 2400,
+      "file": "la-forma-del-agua-quieta-brenda-ranieri-lapislazuli28.webp"
+    },
+    {
+      "source": "La forma del agua quieta_072026_Brenda Ranieri_Lapislazuli_1.png",
+      "alt": "Obra 35, vista 6",
+      "width": 1800,
+      "height": 2400,
+      "file": "la-forma-del-agua-quieta-072026-brenda-ranieri-lapislazuli-1.webp"
+    },
+    {
+      "source": "La forma del agua quieta_Brenda Ranieri_Lapislazuli27.png",
+      "alt": "Obra 35, vista 7",
+      "width": 1800,
+      "height": 2400,
+      "file": "la-forma-del-agua-quieta-brenda-ranieri-lapislazuli27.webp"
+    },
+    {
+      "source": "La forma del agua quieta_072026_Brenda Ranieri_Lapislazuli_10.png",
+      "alt": "Obra 35, vista 8",
+      "width": 1800,
+      "height": 2400,
+      "file": "la-forma-del-agua-quieta-072026-brenda-ranieri-lapislazuli-10.webp"
+    }
+  ],
+  "vasija-con-asas-iii": [
+    {
+      "source": "P1210011.jpg",
+      "alt": "vasija con asas iii, vista 1",
+      "width": 2400,
+      "height": 1800,
+      "file": "p1210011.webp"
+    },
+    {
+      "source": "P1210057.jpg",
+      "alt": "vasija con asas iii, vista 2",
+      "width": 1800,
+      "height": 2400,
+      "file": "p1210057.webp"
+    },
+    {
+      "source": "P1210049.jpg",
+      "alt": "vasija con asas iii, vista 3",
+      "width": 1999,
+      "height": 2400,
+      "file": "p1210049.webp"
+    }
+  ],
+  "lo-velado-obra": [
+    {
+      "source": "08.webp",
+      "alt": "Obra 37, vista 1",
+      "width": 768,
+      "height": 1024,
+      "file": "08.webp"
+    },
+    {
+      "source": "Lo velado_12.png",
+      "alt": "Obra 37, vista 2",
+      "width": 1800,
+      "height": 2400,
+      "file": "lo-velado-12.webp"
+    },
+    {
+      "source": "Lo velado_59 Large.png",
+      "alt": "Obra 37, vista 3",
+      "width": 1024,
+      "height": 768,
+      "file": "lo-velado-59-large.webp"
+    },
+    {
+      "source": "Lo velado_3.png",
+      "alt": "Obra 37, vista 4",
+      "width": 2400,
+      "height": 1800,
+      "file": "lo-velado-3.webp"
+    },
+    {
+      "source": "Lo velado_34 Large.png",
+      "alt": "Obra 37, vista 5",
+      "width": 768,
+      "height": 1024,
+      "file": "lo-velado-34-large.webp"
+    }
+  ],
+  "lo-atamos-con-alambre-obra": [
+    {
+      "source": "IMG_1736.jpeg",
+      "alt": "Obra 38, vista 1",
+      "width": 2400,
+      "height": 2035,
+      "file": "img-1736.webp"
+    },
+    {
+      "source": "Lo atamos con alambre_Brenda Ranieri.jpeg",
+      "alt": "Obra 38, vista 2",
+      "width": 1800,
+      "height": 2400,
+      "file": "lo-atamos-con-alambre-brenda-ranieri.webp"
+    },
+    {
+      "source": "IMG_1733.jpeg",
+      "alt": "Obra 38, vista 3",
+      "width": 1800,
+      "height": 2400,
+      "file": "img-1733.webp"
+    }
+  ],
+  "fuente-agua-quieta": [
+    {
+      "source": "La forma del agua quieta_072026_Brenda Ranieri_Lapislazuli_53.png",
+      "alt": "Obra 39, vista 1",
+      "width": 1800,
+      "height": 2400,
+      "file": "la-forma-del-agua-quieta-072026-brenda-ranieri-lapislazuli-53.webp"
+    },
+    {
+      "source": "La forma del agua quieta_072026_Brenda Ranieri_Lapislazuli_34.png",
+      "alt": "Obra 39, vista 2",
+      "width": 2400,
+      "height": 1800,
+      "file": "la-forma-del-agua-quieta-072026-brenda-ranieri-lapislazuli-34.webp"
+    },
+    {
+      "source": "La forma del agua quieta_072026_Brenda Ranieri_Lapislazuli_57.png",
+      "alt": "Obra 39, vista 3",
+      "width": 1800,
+      "height": 2400,
+      "file": "la-forma-del-agua-quieta-072026-brenda-ranieri-lapislazuli-57.webp"
+    },
+    {
+      "source": "La forma del agua quieta_072026_Brenda Ranieri_Lapislazuli_39.png",
+      "alt": "Obra 39, vista 4",
+      "width": 1800,
+      "height": 2400,
+      "file": "la-forma-del-agua-quieta-072026-brenda-ranieri-lapislazuli-39.webp"
+    },
+    {
+      "source": "La forma del agua quieta_Brenda Ranieri_Lapislazuli43.png",
+      "alt": "Obra 39, vista 5",
+      "width": 2400,
+      "height": 1800,
+      "file": "la-forma-del-agua-quieta-brenda-ranieri-lapislazuli43.webp"
+    },
+    {
+      "source": "La forma del agua quieta_Brenda Ranieri_Lapislazuli4.png",
+      "alt": "Obra 39, vista 6",
+      "width": 2400,
+      "height": 1800,
+      "file": "la-forma-del-agua-quieta-brenda-ranieri-lapislazuli4.webp"
+    }
+  ]
+}
