@@ -90,16 +90,16 @@ a{color:inherit;text-decoration:none}button{font:inherit;color:inherit}
 .piece-opening-image{grid-column:2;grid-row:1/span 2;display:flex;align-items:flex-start;justify-content:center;height:calc(100dvh - 136px);margin:0;overflow:hidden}
 .piece-opening-image .zoomable-artwork-image{height:100%;display:flex;align-items:flex-start;justify-content:center}
 .piece-opening-image .zoomable-artwork-image img{width:100%;height:100%!important;object-fit:contain;object-position:center top}
-.piece-vasija-2 .piece-opening-image img,.piece-sin-titulo-i .piece-opening-image img,.piece-vasija-i .piece-opening-image img,.piece-sin-titulo-ii .piece-opening-image img,.piece-lo-atamos-con-alambre-obra .piece-opening-image img,.piece-fuente-agua-quieta .piece-opening-image img{object-position:center center}
+.piece-vasija-2 .piece-opening-image img,.piece-sin-titulo-i .piece-opening-image img,.piece-vasija-i .piece-opening-image img,.piece-sin-titulo-ii .piece-opening-image img,.piece-lo-atamos-con-alambre-obra .piece-opening-image img,.piece-fuente-agua-quieta .piece-opening-image img{object-fit:cover;object-position:center center}
 .piece-showcase-static .piece-information{grid-column:1;grid-row:2;display:block;align-self:stretch;padding:38px 3vw 0 0;border:0}
 .piece-showcase-static .piece-facts{min-height:100%;padding:0}
-.piece-showcase-static .piece-facts h1{margin:34px 0;font:300 clamp(30px,3.4vw,54px)/1 var(--font-display);letter-spacing:-.025em}
+.piece-showcase-static .piece-facts h1{margin:34px 0;font:300 clamp(54px,6vw,96px)/.92 var(--font-display);letter-spacing:-.045em}
 .piece-showcase-static .piece-facts dl{margin-top:auto}
 @media(max-width:760px){
   .piece-showcase-static{display:flex;min-height:calc(100dvh - 64px);flex-direction:column;gap:24px;padding:26px 0 34px}
   .piece-opening-image{order:2;width:100%;height:min(54dvh,112vw)}
   .piece-showcase-static .piece-information{order:3;width:100%;padding:10px 0 0}
-  .piece-showcase-static .piece-facts{min-height:0}.piece-showcase-static .piece-facts h1{margin:24px 0}
+  .piece-showcase-static .piece-facts{min-height:0}.piece-showcase-static .piece-facts h1{margin:24px 0;font-size:54px}
   .footer-contact{gap:12px}.back-to-top{bottom:16px}
 }
 
