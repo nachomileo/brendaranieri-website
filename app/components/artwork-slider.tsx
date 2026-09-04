@@ -2,9 +2,10 @@
 
 import { useCallback, useEffect, useRef, useState } from "react";
 import Image from "next/image";
-import type { ArtworkImage } from "../../lib/artworks";
 
-export function ArtworkSlider({ images, code }: { images: ArtworkImage[]; code: string }) {
+type SliderImage = { src: string; alt: string; width: number; height: number };
+
+export function ArtworkSlider({ images, code }: { images: SliderImage[]; code: string }) {
   const [current, setCurrent] = useState(0);
   const [zoomOpen, setZoomOpen] = useState(false);
   const pointerStart = useRef<number | null>(null);

@@ -293,7 +293,7 @@ export const projects = [
     "category": "Colaboraciones",
     "titleEs": "Sin embargo, se mueve",
     "titleEn": "And Yet It Moves",
-    "period": "noviembre de 2025",
+    "period": "diciembre de 2025",
     "year": 2025,
     "status": "terminado",
     "type": "colaboración / cena inmersiva / instalación",

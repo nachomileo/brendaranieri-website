@@ -28,8 +28,8 @@ const editorialProjects: Record<string, Record<ProjectLanguage, EditorialProject
     es: entry("group-shows", 202512, "Hangar", ["Exposición colectiva", "Artelier 21, Marbella", "4 oct–4 dic 2025"]),
   },
   "bioceramica-a-base-de-residuos-de-cafe": {
-    en: entry("residencies", 202612, "Bioceramics", ["Research residency", "Escala House, Madrid", "Nov–Dec 2026"]),
-    es: entry("residencies", 202612, "Biocerámica", ["Residencia de investigación", "Escala House, Madrid", "Nov–dic 2026"]),
+    en: entry("residencies", 202512, "Bioceramics", ["Research residency", "Escala House, Madrid", "Nov–Dec 2025"]),
+    es: entry("residencies", 202512, "Biocerámica", ["Residencia de investigación", "Escala House, Madrid", "Nov–dic 2025"]),
   },
   "ruta-off-cerartmic-escala-house": {
     en: entry("collaborations", 202606, "CerARTmic — OFF programme", ["Contemporary ceramics fair", "Escala House, Madrid", "May–Jun 2026"]),
@@ -44,8 +44,8 @@ const editorialProjects: Record<string, Record<ProjectLanguage, EditorialProject
     es: entry("collaborations", 202603, "Anarqueologías", ["El Imparcial", "C. Duque de Alba 4", "Nov 2025–mar 2026"]),
   },
   "sin-embargo-se-mueve": {
-    en: entry("collaborations", 202612, "Yet It Moves", ["Immersive dinner", "Escala House, Madrid", "Dec 2026"]),
-    es: entry("collaborations", 202612, "Sin embargo, se mueve", ["Cena inmersiva", "Escala House, Madrid", "Dic 2026"]),
+    en: entry("collaborations", 202512, "Yet It Moves", ["Immersive dinner", "Escala House, Madrid", "Dec 2025"]),
+    es: entry("collaborations", 202512, "Sin embargo, se mueve", ["Cena inmersiva", "Escala House, Madrid", "Dic 2025"]),
   },
   "memorias-de-agua-y-barro": {
     en: entry("cultural-festivals", 202510, "Memorias de agua y barro", ["Cruza Carabanchel Cultural Festival", "Fresca. La Nave, Madrid", "Oct 2025"]),

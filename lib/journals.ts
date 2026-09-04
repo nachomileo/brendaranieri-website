@@ -5,6 +5,9 @@ export type JournalEntry = {
   meta: string;
   text: string[];
   images: JournalImage[];
+  sequences?: { label: string; images: JournalImage[]; layout?: "slider" | "grid" }[];
+  wideText?: boolean;
+  afterImages?: JournalImage[];
 };
 
 const image = (section: string, file: string, alt: string, width: number, height: number): JournalImage => ({

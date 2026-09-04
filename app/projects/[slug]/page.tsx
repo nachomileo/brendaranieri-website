@@ -11,7 +11,7 @@ import { SiteNavigation } from "../../components/site-navigation";
 import { ProjectEditorialGallery } from "../../components/project-editorial-gallery";
 import { OaxProjectBlocks } from "../../components/oax-project-blocks";
 
-type Props = { params: Promise<{ slug: string }> };
+type Props = { params: Promise<{ slug: string }>; searchParams: Promise<{ lang?: string }> };
 
 export function generateStaticParams() {
   return projects.map(({ slug }) => ({ slug }));
@@ -23,22 +23,19 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   return project && presentation ? { title: `${presentation.title} — Brenda Ranieri`, description: project.introEs } : {};
 }
 
-export default async function ProjectPage({ params }: Props) {
+export default async function ProjectPage({ params, searchParams }: Props) {
+  const language = (await searchParams).lang === "en" ? "en" : "es";
   const project = getProject((await params).slug);
   if (!project) notFound();
-  const presentation = projectPresentation(project, "es");
+  const presentation = projectPresentation(project, language);
   const projectImages = getProjectImages(project.slug);
   const narrativeImages = project.slug === "oax-car-38-57" ? projectImages.filter((image) => image.kind !== "archive") : projectImages;
-  const categoryLabels: Record<ProjectCategory, string> = { "solo-shows": "Solo shows", "group-shows": "Group shows", biennial: "Bienal", "cultural-festivals": "Festivales culturales", collaborations: "Colaboraciones", residencies: "Residencias" };
+  const categoryLabels: Record<ProjectCategory, string> = language === "es" ? { "solo-shows": "Solo shows", "group-shows": "Group shows", biennial: "Bienal", "cultural-festivals": "Festivales culturales", collaborations: "Colaboraciones", residencies: "Residencias" } : { "solo-shows": "Solo shows", "group-shows": "Group shows", biennial: "Biennial", "cultural-festivals": "Cultural festivals", collaborations: "Collaborations", residencies: "Residencies" };
   const index = projects.findIndex(({ slug }) => slug === project.slug);
   const previous = projects[(index - 1 + projects.length) % projects.length];
   const next = projects[(index + 1) % projects.length];
-  const bodyParagraphs = project.bodyEs.split(/\n\s*\n/).filter(Boolean).map((paragraph) => paragraph.replaceAll("*", ""));
-  const introductoryText = project.slug === "oax-car-38-57"
-    ? "OAX-CAR-38-57 es un proyecto de Brenda Ranieri desde Fresca. La nave, desarrollado para Iberoamérica y Carabanchel: diálogos desde el diseño, en el marco de la Bienal Iberoamericana de Diseño 2026 (BID26), organizada por DiMaD en la Central de Diseño de Matadero Madrid. Conecta Oaxaca y Carabanchel mediante un archivo material y especulativo articulado por el agua, las arcillas locales, el Códice de Madrid y la búsqueda cerámica de un punto eutéctico. Los proyectos completos se presentarán durante la Bienal en noviembre de 2026."
-    : project.introEs.replaceAll("*", "");
+  const bodyParagraphs = (language === "es" ? project.bodyEs : project.bodyEn).split(/\n\s*\n/).filter(Boolean).map((paragraph) => paragraph.replaceAll("*", ""));
   const projectCode = `P.${String(index + 1).padStart(2, "0")}`;
-  const sliderGroups = narrativeImages.length > 9 ? [narrativeImages.slice(-4)] : [];
   const loadOaxFolder = (folder: string, alt: string) => {
     const directory = path.join(process.cwd(), "public/images/projects/oax-car-38-57", folder);
     return readdirSync(directory)
@@ -49,7 +46,7 @@ export default async function ProjectPage({ params }: Props) {
         alt: `${alt}, imagen ${imageIndex + 1}`,
       }));
   };
-  const oaxProjectImages = project.slug === "oax-car-38-57" ? narrativeImages : [];
+  const oaxProjectImages = project.slug === "oax-car-38-57" ? narrativeImages.filter((image) => !image.src.endsWith("/home-05.webp") && !image.src.endsWith("/home-02.webp")) : [];
   const oaxFieldArchive = project.slug === "oax-car-38-57" ? loadOaxFolder("Archivo 35mm", "Registro analógico del proceso de OAX-CAR-38-57") : [];
   const oaxRayograms = project.slug === "oax-car-38-57" ? loadOaxFolder("Rayogramas", "Proceso de co-creación y rayograma de agua") : [];
   const facts = [
@@ -60,27 +57,27 @@ export default async function ProjectPage({ params }: Props) {
 
   return (
     <>
-      <header className="archive-header project-detail-header"><SiteSignature /><SiteNavigation /></header>
+      <header className="archive-header project-detail-header"><SiteSignature /><SiteNavigation language={language} /></header>
       <main className="project-detail">
         <section className="project-showcase project-showcase-intro" aria-labelledby="project-title">
-          <div className={`project-showcase-heading ${project.slug === "oax-car-38-57" ? "numeric-project-title" : ""}`}><p>{categoryLabels[presentation.category]} · {presentation.lines.at(-1)}</p><h1 id="project-title">{presentation.title}</h1><p>{introductoryText}</p></div>
+          <div className={`project-showcase-heading ${project.slug === "oax-car-38-57" ? "numeric-project-title" : ""}`}><p>{categoryLabels[presentation.category]} · {presentation.lines.at(-1)}</p><h1 id="project-title">{presentation.title}</h1></div>
         </section>
         {project.slug === "oax-car-38-57" ? (
-          <OaxProjectBlocks project={project} images={oaxProjectImages} rayograms={oaxRayograms} fieldArchive={oaxFieldArchive} />
+          <OaxProjectBlocks project={project} images={oaxProjectImages} rayograms={oaxRayograms} fieldArchive={oaxFieldArchive} language={language} />
         ) : <>
         <nav className="oax-block-index project-block-index" aria-label={`Índice de ${presentation.title}`}>
-          <a href="#project-information"><span>01</span><strong>Contexto e información</strong><small>Ficha y texto del proyecto</small></a>
-          <a href="#project-documentation"><span>02</span><strong>Documentación</strong><small>{narrativeImages.length} imágenes</small></a>
+          <a href="#project-information"><span>01</span><strong>{language === "es" ? "Contexto e información" : "Context and information"}</strong><small>{language === "es" ? "Ficha y texto del proyecto" : "Project facts and text"}</small></a>
+          <a href="#project-archive"><span>02</span><strong>{language === "es" ? "Archivo" : "Archive"}</strong><small>{narrativeImages.length} {language === "es" ? "imágenes" : "images"}</small></a>
         </nav>
         <section className="project-overview" id="project-information" aria-label="Información del proyecto">
           <div className="project-facts"><dl>{facts.filter(([key, , value]) => value && value !== "PENDIENTE" && !project.hiddenFacts?.includes(key)).map(([key, label, value]) => <div key={key}><dt>{project.factLabels?.[key] ?? label}</dt><dd>{value}</dd></div>)}</dl></div>
-          <article className="project-overview-copy"><span>01 — Contexto y proceso</span>{bodyParagraphs.map((paragraph, paragraphIndex) => <p key={paragraphIndex}>{paragraph}</p>)}</article>
+          <article className="project-overview-copy"><span>{language === "es" ? "01 — Contexto y proceso" : "01 — Context and process"}</span>{bodyParagraphs.map((paragraph, paragraphIndex) => <p key={paragraphIndex}>{paragraph}</p>)}</article>
         </section>
-        <div id="project-documentation"><ProjectEditorialGallery title={presentation.title} code={projectCode} images={narrativeImages} featuredIndex={project.slug === "la-forma-del-agua-quieta" ? 6 : 0} sliderGroups={sliderGroups} text="" /></div>
+        <div id="project-archive"><ProjectEditorialGallery title={presentation.title} code={projectCode} images={narrativeImages} featuredIndex={project.slug === "la-forma-del-agua-quieta" ? 6 : 0} text="" /></div>
         </>}
         <nav className="artwork-pagination" aria-label="Previous and next project"><Link href={`/projects/${previous.slug}`}>← {previous.titleEs}</Link><Link href="/#projects">Todos los proyectos</Link><Link href={`/projects/${next.slug}`}>{next.titleEs} →</Link></nav>
       </main>
-      <footer className="archive-footer"><span>Brenda Ranieri © 2026</span><span>ES / EN</span></footer>
+      <footer className="archive-footer"><span>Brenda Ranieri © 2026</span><div className="language-switch"><Link className={language === "en" ? "active" : ""} href={`?lang=en`}>EN</Link><span>/</span><Link className={language === "es" ? "active" : ""} href={`?lang=es`}>ES</Link></div></footer>
     </>
   );
 }

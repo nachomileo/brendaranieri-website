@@ -25,14 +25,14 @@ const copy = {
     bio: "Visual artist and ceramicist. She researches how matter, territory and collective processes can open new forms of creation.",
     works: "Pieces",
     studio: "Situated Processes",
-    studioText: "A living journal of fieldwork, wild clays, tests, firings and material transformations.",
+    studioText: "I gather, classify, test and archive materials from the landscape to incorporate them into works and installations. This process connects fieldwork, laboratory research and artistic practice.",
     shared: "Shared Practices",
     sharedText: "Collective research and co-creation.",
     note: "Field note",
     contact: "Contact",
   },
   es: {
-    nav: ["Exposiciones y proyectos", "About", "Piezas", "Procesos situados", "Prácticas compartidas"],
+    nav: ["Exposiciones y proyectos", "About", "Piezas", "Procesos situados", "Prácticas colectivas"],
     practice: "Artista visual. Materia, territorio, agua y transformación.",
     view: "Ver proyecto",
     viewAllProjects: "Ver todos",
@@ -40,8 +40,8 @@ const copy = {
     bio: "Artista visual y ceramista. Investiga cómo la materia, el territorio y los procesos colectivos pueden abrir nuevas formas de creación.",
     works: "Piezas",
     studio: "Procesos situados",
-    studioText: "Investigación matérica, procesos de taller, pruebas, formulaciones, recolección de arcillas silvestres, paisaje urbano y archivo personal.",
-    shared: "Prácticas compartidas",
+    studioText: "Recolecto, clasifico, pruebo y archivo materiales del paisaje para incorporarlos al diseño de piezas e instalaciones. Este recorrido conecta el trabajo de campo, el laboratorio y la práctica artística.",
+    shared: "Prácticas colectivas",
     sharedText: "Investigación colectiva y co-creación.",
     note: "Nota de campo",
     contact: "Contacto",
@@ -58,7 +58,7 @@ const homeProjectOrder = [
 ];
 const homeProjects = homeProjectOrder.flatMap((slug) => projects.filter((project) => project.slug === slug));
 const homeArtworkCover: Record<string, number> = {
-  "vasija-2": 0,
+  "vasija-2": 1,
   "materia-solidificandose": 2,
   "antes-del-rayo": 0,
   "vasija-ladrillo": 0,
@@ -87,7 +87,7 @@ export default function Home() {
 
       <main>
         <section className="hero" aria-label="Featured artwork">
-          <div className="hero-image"><Image src="/images/hero-la-forma-del-agua-quieta-retouched.webp" alt="Fuente cerámica de La forma del agua quieta sobre fondo blanco" fill priority sizes="100vw" quality={92} /></div>
+          <div className="hero-image"><Image src="/images/hero-la-forma-del-agua-quieta-final.webp" alt="Fuente cerámica de La forma del agua quieta sobre fondo blanco" fill priority sizes="100vw" quality={92} /></div>
         </section>
 
         <section className="projects section" id="projects" aria-labelledby="projects-title">
@@ -99,11 +99,11 @@ export default function Home() {
             return <article className="project-row" key={project.slug}>
               <div className="project-index">{String(projectIndex + 1).padStart(2, "0")}</div>
               <div className={`project-info ${project.slug === "oax-car-38-57" ? "numeric-project-title" : ""}`}><h3>{presentation.title}</h3><p>{presentation.lines.map((line, index) => <span key={line + index}><EditorialLine value={line} />{index < presentation.lines.length - 1 && <br />}</span>)}</p><a href={`/projects/${project.slug}`}>{t.view} ↗</a></div>
-              <div className={`project-composition project-composition-${previewCount}`} style={{ "--preview-count": previewCount } as CSSProperties}>
+              <div className={`project-composition project-composition-${previewCount} ${projectIndex >= 2 ? "is-right-aligned" : ""}`} style={{ "--preview-count": previewCount } as CSSProperties}>
                 {Array.from({ length: previewCount }, (_, imageIndex) => {
                   const image = homeImages[imageIndex];
                   const ratio = image ? image.width / image.height : .75;
-                  return <figure className="project-preview" style={{ "--image-ratio": ratio, flexGrow: ratio } as CSSProperties} key={image?.src ?? imageIndex}><span>{projectIndex + 1}.{imageIndex + 1}</span><a href={`/projects/${project.slug}`} aria-label={`${t.view}: ${presentation.title}`}><div className={`project-preview-frame ${image ? "" : `placeholder project-tone-${(projectIndex + imageIndex) % 6 + 1}`}`}>{image && <Image src={image.src} alt={image.alt} width={image.width} height={image.height} sizes="(max-width: 760px) 24vw, 12vw" quality={85} />}</div></a></figure>;
+                  return <figure className="project-preview" style={{ "--image-ratio": ratio, "--preview-width": `clamp(${Math.round(ratio * 150)}px, ${ratio * 15}vw, ${Math.round(ratio * 230)}px)`, "--mobile-preview-width": `${ratio * 31}vw` } as CSSProperties} key={image?.src ?? imageIndex}><span>{projectIndex + 1}.{imageIndex + 1}</span><a href={`/projects/${project.slug}`} aria-label={`${t.view}: ${presentation.title}`}><div className={`project-preview-frame ${image ? "" : `placeholder project-tone-${(projectIndex + imageIndex) % 6 + 1}`}`}>{image && <Image src={image.src} alt={image.alt} width={image.width} height={image.height} sizes="(max-width: 760px) 24vw, 12vw" quality={85} />}</div></a></figure>;
                 })}
               </div>
             </article>;
@@ -111,7 +111,7 @@ export default function Home() {
         </section>
 
         <section className="bio section" id="bio" aria-labelledby="bio-title">
-          <div className="portrait"><Image src="/images/journal/home/brenda-ranieri-estudio-ii.webp" alt="Estudio de Brenda Ranieri en Carabanchel" fill sizes="(max-width: 760px) 100vw, 50vw" quality={90} /></div>
+          <Link className="portrait" href="/about" aria-label="About — Brenda Ranieri"><Image src="/images/journal/home/about-portada.webp" alt="Retrato de Brenda Ranieri en su estudio de Carabanchel" fill sizes="(max-width: 760px) 100vw, 50vw" quality={90} /></Link>
           <div className="bio-copy"><p className="kicker">About</p><h2 id="bio-title">Brenda<br />Ranieri</h2><p className="bio-text">{t.bio}</p><a className="text-link" href="/about">About ↗</a></div>
         </section>
 
@@ -134,28 +134,18 @@ export default function Home() {
         </section>
 
         <section className="studio section home-journal-teaser" id="processes" aria-labelledby="studio-title">
-          <div className="studio-copy"><p className="kicker">{t.note} 014</p><h2 id="studio-title">{t.studio}</h2><p>{t.studioText}</p><div className="studio-index"><span>Clay 680</span><span>Asturias</span><span>20.08.2025</span></div></div>
-          <a className="studio-image" href="/situated-processes"><Image src="/images/journal/situated/material-cantera-caolin-burela-brenda-ranieri-2026-14.webp" alt="Trabajo de campo y recolección de material en Burela" fill sizes="(max-width: 760px) 100vw, 58vw" quality={88} /><span>Leer el diario ↗</span></a>
+          <div className="studio-copy"><p className="kicker">{t.note} 014</p><h2 id="studio-title">{t.studio}</h2><p>{t.studioText}</p><Link className="home-archive-link" href="/situated-processes">{language === "es" ? "Ver archivo" : "View archive"} ↗</Link><div className="studio-index"><span>Clay 680</span><span>Asturias</span><span>20.08.2025</span></div></div>
+          <a className="studio-image" href="/situated-processes"><Image src="/images/journal/situated/material-cantera-caolin-burela-brenda-ranieri-2026-14.webp" alt="Trabajo de campo y recolección de material en Burela" fill sizes="(max-width: 760px) 100vw, 58vw" quality={88} /></a>
         </section>
 
-        <section className="shared-practices section" id="shared" aria-labelledby="shared-title">
-          <div className="section-title"><h2 id="shared-title">{t.shared}</h2><span>Collective / Ongoing</span></div>
-          <a className="shared-feature" href="/shared-practices">
-            <div className="shared-mini-gallery">
-              {[
-                ["f81acf60-0071-43ae-ba21-1b3a01f7c256-1-102-o.webp", "Proceso colectivo de rayogramas para OAX-CAR-38-57"],
-                ["6a913430-9c9e-4364-8fe1-af81fa73ad44-1-105-c.webp", "Taller con arcillas silvestres y materiales urbanos"],
-                ["53146900-8fee-4914-825d-ce38f2fbf64c-1-105-c.webp", "Investigación compartida en el laboratorio fotográfico"],
-                ["56b802cc-5143-4a6c-8d04-7fee176bb413-1-102-o.webp", "Resultado visual de una práctica colectiva"],
-              ].map(([src, alt]) => <figure key={src}><Image src={`/images/journal/shared/${src}`} alt={alt} fill sizes="(max-width: 760px) 50vw, 34vw" quality={90} /></figure>)}
-            </div>
-            <div className="shared-feature-copy"><p>{t.sharedText}</p><span>{language === "es" ? "Ver prácticas compartidas" : "View shared practices"} ↗</span></div>
-          </a>
+        <section className="studio section home-journal-teaser home-shared-teaser" id="shared" aria-labelledby="shared-title">
+          <div className="studio-copy"><p className="kicker">{t.note} 015</p><h2 id="shared-title">{t.shared}</h2><p>{t.sharedText}</p><Link className="home-archive-link" href="/shared-practices">{language === "es" ? "Ver archivo" : "View archive"} ↗</Link><div className="studio-index"><span>Co-creación</span><span>Madrid</span><span>2025—2026</span></div></div>
+          <a className="studio-image" href="/shared-practices"><Image src="/images/journal/shared/home-shared-portada.webp" alt="Taller colectivo con arcillas silvestres y materiales del paisaje urbano" fill sizes="(max-width: 760px) 100vw, 58vw" quality={90} /></a>
         </section>
       </main>
 
       <footer className="site-footer">
-        <div><span className="footer-signature">© 2026</span><a href="mailto:info@brendaranieri.art">{t.contact}</a><a href="https://www.instagram.com/brendaranieri.studio/">Instagram</a></div>
+        <div><span className="footer-signature">© 2026</span><a href="mailto:info@brendaranieri.art" target="_blank" rel="noopener noreferrer">{t.contact}</a><a href="https://www.instagram.com/brendaranieri.studio/" target="_blank" rel="noopener noreferrer">Instagram</a></div>
         <div className="language-switch" aria-label="Language"><button type="button" className={language === "en" ? "active" : ""} onClick={() => setLanguage("en")} aria-pressed={language === "en"}>EN</button><span>/</span><button type="button" className={language === "es" ? "active" : ""} onClick={() => setLanguage("es")} aria-pressed={language === "es"}>ES</button></div>
       </footer>
     </>

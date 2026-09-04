@@ -1,17 +1,11 @@
 import Link from "next/link";
 
-const items = [
-  ["/projects", "Exposiciones y proyectos"],
-  ["/about", "About"],
-  ["/#works", "Piezas"],
-  ["/situated-processes", "Procesos situados"],
-  ["/shared-practices", "Prácticas compartidas"],
-] as const;
+const labels = {
+  es: ["Exposiciones y proyectos", "About", "Piezas", "Procesos situados", "Prácticas colectivas"],
+  en: ["Exhibitions & projects", "About", "Pieces", "Situated processes", "Collective practices"],
+} as const;
+const hrefs = ["/projects", "/about", "/#works", "/situated-processes", "/shared-practices"] as const;
 
-export function SiteNavigation() {
-  return (
-    <nav className="archive-primary-nav" aria-label="Navegación principal">
-      {items.map(([href, label]) => <Link href={href} key={href}>{label}</Link>)}
-    </nav>
-  );
+export function SiteNavigation({ language = "es" }: { language?: "es" | "en" }) {
+  return <nav className="archive-primary-nav" aria-label={language === "es" ? "Navegación principal" : "Primary navigation"}>{hrefs.map((href, index) => <Link href={href} key={href}>{labels[language][index]}</Link>)}</nav>;
 }

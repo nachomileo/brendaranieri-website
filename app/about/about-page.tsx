@@ -2,25 +2,41 @@
 
 import { useEffect, useState } from "react";
 import Image from "next/image";
+import Link from "next/link";
 import { SiteNavigation } from "../components/site-navigation";
 import { SiteSignature } from "../components/site-signature";
+import { getProjectCover } from "../../lib/project-images";
+import { projectPresentation, projectSortDate } from "../../lib/project-presentation";
+import { projects } from "../../lib/projects";
+
+const chronologicalProjects = [...projects].sort((a, b) => projectSortDate(b) - projectSortDate(a));
 
 const content = {
   es: {
     lead: "Artista visual y ceramista. Investiga cómo la materia, el territorio y los procesos colectivos pueden abrir nuevas formas de creación.",
     statement: [
-      "Desde su taller en Carabanchel, Madrid, Brenda Ranieri investiga las relaciones entre materia, territorio y memoria mediante la cerámica, la instalación y el trabajo de campo. Su práctica comienza con la deriva, la escucha y la recolección de arcillas, sedimentos, piedras, metales y restos constructivos que revelan las transformaciones geológicas, urbanas y afectivas de cada lugar.",
-      "En el taller formula sus propias pastas y esmaltes y desarrolla procesos experimentales donde la intuición convive con la investigación técnica. La materia no funciona como un soporte pasivo, sino como un agente que participa en la construcción de sentido a través del agua, el fuego, el tiempo y la incertidumbre.",
-      "Sus instalaciones e intervenciones buscan activar encuentros entre las personas y el territorio, haciendo visibles memorias latentes y relaciones entre lo humano y lo más-que-humano. Desde 2024 dirige Fresca. La nave, un espacio independiente de creación contemporánea en Carabanchel dedicado a la experimentación y al intercambio entre artistas.",
+      "Desde mi taller en Carabanchel (Madrid), desarrollo una práctica artística que investiga la relación entre materia, territorio y memoria a través de la cerámica, la instalación y el trabajo de campo. Mi investigación parte de la observación atenta del paisaje —especialmente de aquellas infraestructuras y materiales que suelen pasar desapercibidos— para explorar las historias geológicas, urbanas y afectivas inscritas en los lugares.",
+      "Trabajo a partir de procesos de deriva, escucha y recolección de materiales locales, con especial interés por las arquitecturas del agua, las arcillas, los restos constructivos y otros elementos que revelan las transformaciones del territorio. Entiendo la práctica cerámica como una forma de leer y establecer vínculos con el entorno, donde la materia no es un soporte pasivo sino un agente que participa en la construcción de sentido.",
+      "Mi trabajo combina la elaboración de pastas cerámicas y esmaltes propios con materiales naturales, desarrollando procesos experimentales en los que el taller funciona como un espacio de investigación que integra lo artístico y lo técnico, la intuición y la atención a las cualidades físicas y simbólicas de los materiales.",
+      "A través de instalaciones, esculturas e intervenciones específicas para cada lugar, me interesa activar formas de encuentro entre las personas y el territorio, proponiendo desplazamientos en la manera de mirar los espacios cotidianos. Mi práctica busca hacer visibles memorias latentes y generar situaciones donde lo humano y lo más-que-humano puedan entenderse como agentes que configuran conjuntamente el paisaje.",
+      "Desde 2024 fundé y dirijo Fresca. La nave, un espacio independiente de creación contemporánea en Carabanchel dedicado a la experimentación artística, la producción y el intercambio cultural.",
     ],
+    projects: "Proyectos",
+    archive: "Consultar archivo completo",
+    cv: "Descargar CV",
   },
   en: {
-    lead: "Visual artist and ceramicist. She researches how matter, territory and collective processes can open new forms of creation.",
+    lead: "Visual artist and ceramicist. She explores how matter, territory and collective processes can open up new forms of creation.",
     statement: [
-      "From her studio in Carabanchel, Madrid, Brenda Ranieri explores the relationships between matter, territory and memory through ceramics, installation and fieldwork. Her practice begins with wandering, attentive listening and the gathering of clays, sediments, stones, metals and construction remnants that reveal the geological, urban and affective transformations of each place.",
-      "In the studio she formulates her own clay bodies and glazes, developing experimental processes where intuition meets technical research. Matter is not a passive support, but an agent that participates in the construction of meaning through water, fire, time and uncertainty.",
-      "Her installations and site-specific interventions activate encounters between people and territory, making latent memories and relationships between the human and more-than-human visible. Since 2024 she has directed Fresca. La nave, an independent contemporary art space in Carabanchel devoted to experimentation and exchange between artists.",
+      "From my studio in Carabanchel, Madrid, I develop an artistic practice that explores the relationship between matter, territory and memory through ceramics, installation and fieldwork. My research begins with attentive observation of the landscape—particularly the infrastructures and materials that often go unnoticed—to explore the geological, urban and affective histories inscribed in places.",
+      "I work through processes of wandering, listening and gathering local materials, with a particular interest in water infrastructures, clays, construction remnants and other elements that reveal transformations in the territory. I understand ceramic practice as a way of reading and forming connections with my surroundings, where matter is not a passive support but an agent that participates in the construction of meaning.",
+      "My work combines the development of my own ceramic bodies and glazes with natural materials. Through experimental processes, the studio becomes a space of research that brings together the artistic and the technical, intuition and attention to the physical and symbolic qualities of materials.",
+      "Through installations, sculptures and site-specific interventions, I seek to activate encounters between people and territory, shifting the way everyday spaces are perceived. My practice aims to make latent memories visible and to create situations in which human and more-than-human actors can be understood as jointly shaping the landscape.",
+      "In 2024 I founded and continue to direct Fresca. La nave, an independent contemporary art space in Carabanchel devoted to artistic experimentation, production and cultural exchange.",
     ],
+    projects: "Projects",
+    archive: "View full archive",
+    cv: "Download CV",
   },
 } as const;
 
@@ -29,11 +45,31 @@ export default function AboutPage() {
   const copy = content[language];
   useEffect(() => { document.documentElement.lang = language; }, [language]);
   return <>
-    <header className="archive-header"><SiteSignature /><SiteNavigation /></header>
-    <main className="about-page">
-      <header className="about-heading"><p>About</p><h1>Brenda Ranieri</h1><p>{copy.lead}</p></header>
-      <div className="about-image"><Image src="/images/journal/home/brenda-ranieri-estudio-ii.webp" alt="Estudio de Brenda Ranieri en Carabanchel" fill priority sizes="100vw" quality={92} /></div>
-      <section className="about-statement" aria-label="Artist statement"><p>Statement</p><div>{copy.statement.map((paragraph) => <p key={paragraph}>{paragraph}</p>)}</div></section>
+    <header className="archive-header"><SiteSignature /><SiteNavigation language={language} /></header>
+    <main className="about-page about-page-compact">
+      <section className="about-profile">
+        <div className="about-profile-copy">
+          <p className="about-label">About</p>
+          <h1>Brenda Ranieri</h1>
+          <p className="about-lead">{copy.lead}</p>
+          <div className="about-statement-copy">{copy.statement.map((paragraph) => <p key={paragraph}>{paragraph}</p>)}</div>
+          <div className="about-profile-links"><a href="/downloads/CV-Brenda-Ranieri-2026.pdf" target="_blank" rel="noopener noreferrer">{copy.cv} ↗</a><a href="mailto:info@brendaranieri.art" target="_blank" rel="noopener noreferrer">Email ↗</a><a href="https://www.instagram.com/brendaranieri.studio/" target="_blank" rel="noopener noreferrer">Instagram ↗</a></div>
+        </div>
+        <figure className="about-profile-image"><Image src="/images/journal/home/about-portada-interior.webp" alt="Retrato de Brenda Ranieri en su estudio de Carabanchel" fill priority sizes="(max-width: 760px) 100vw, 40vw" quality={92} /></figure>
+      </section>
+      <section className="about-projects about-projects-all" aria-labelledby="about-projects-title">
+        <header><span id="about-projects-title">{copy.projects}</span><Link href="/projects">{copy.archive} ↗</Link></header>
+        <div>{chronologicalProjects.map((project, index) => {
+          const presentation = projectPresentation(project, language);
+          const cover = getProjectCover(project.slug);
+          return <Link className="about-project-card" href={`/projects/${project.slug}`} key={project.slug}>
+            <span>{String(index + 1).padStart(2, "0")}</span>
+            {cover && <figure><Image src={cover.src} alt={cover.alt} width={cover.width} height={cover.height} sizes="(max-width: 760px) 50vw, 25vw" /></figure>}
+            <div><h2>{presentation.title}</h2><p>{presentation.lines.at(-1)}</p></div>
+          </Link>;
+        })}</div>
+      </section>
+      <nav className="about-onward about-onward-three" aria-label={language === "es" ? "Continuar explorando" : "Continue exploring"}><Link href="/selected-artworks">{language === "es" ? "Piezas" : "Pieces"} ↗</Link><Link href="/situated-processes">{language === "es" ? "Procesos situados" : "Situated processes"} ↗</Link><Link href="/shared-practices">{language === "es" ? "Prácticas colectivas" : "Collective practices"} ↗</Link></nav>
     </main>
     <footer className="archive-footer"><span>Brenda Ranieri © 2026</span><div className="language-switch" aria-label="Language"><button type="button" className={language === "en" ? "active" : ""} onClick={() => setLanguage("en")}>EN</button><span>/</span><button type="button" className={language === "es" ? "active" : ""} onClick={() => setLanguage("es")}>ES</button></div></footer>
   </>;
