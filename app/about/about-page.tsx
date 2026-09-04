@@ -1,6 +1,5 @@
 "use client";
 
-import { useEffect, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { SiteNavigation } from "../components/site-navigation";
@@ -9,6 +8,8 @@ import { FooterContact } from "../components/footer-contact";
 import { getProjectCover } from "../../lib/project-images";
 import { projectPresentation, projectSortDate } from "../../lib/project-presentation";
 import { projects } from "../../lib/projects";
+import { localizedHref } from "../../lib/i18n";
+import { useSiteLanguage } from "../components/use-site-language";
 
 const chronologicalProjects = [...projects].sort((a, b) => projectSortDate(b) - projectSortDate(a));
 
@@ -40,9 +41,8 @@ const content = {
 } as const;
 
 export default function AboutPage() {
-  const [language, setLanguage] = useState<"es" | "en">("es");
+  const [language, setLanguage] = useSiteLanguage();
   const copy = content[language];
-  useEffect(() => { document.documentElement.lang = language; }, [language]);
   return <>
     <header className="archive-header"><SiteSignature /><SiteNavigation language={language} /></header>
     <main className="about-page about-page-compact">
@@ -57,18 +57,18 @@ export default function AboutPage() {
         <figure className="about-profile-image"><Image src="/images/journal/home/about-portada-interior.webp" alt="Retrato de Brenda Ranieri en su estudio de Carabanchel" fill priority sizes="(max-width: 760px) 100vw, 40vw" quality={92} /></figure>
       </section>
       <section className="about-projects about-projects-all" aria-labelledby="about-projects-title">
-        <header><span id="about-projects-title">{copy.projects}</span><Link href="/projects">{copy.archive} ↗</Link></header>
+        <header><span id="about-projects-title">{copy.projects}</span><Link href={localizedHref("/projects", language)}>{copy.archive} ↗</Link></header>
         <div>{chronologicalProjects.map((project, index) => {
           const presentation = projectPresentation(project, language);
           const cover = getProjectCover(project.slug);
-          return <Link className="about-project-card" href={`/projects/${project.slug}`} key={project.slug}>
+          return <Link className="about-project-card" href={localizedHref(`/projects/${project.slug}`, language)} key={project.slug}>
             <span>{String(index + 1).padStart(2, "0")}</span>
             {cover && <figure><Image src={cover.src} alt={cover.alt} width={cover.width} height={cover.height} sizes="(max-width: 760px) 50vw, 25vw" /></figure>}
             <div><h2>{presentation.title}</h2><p>{presentation.lines.at(-1)}</p></div>
           </Link>;
         })}</div>
       </section>
-      <nav className="about-onward about-onward-three" aria-label={language === "es" ? "Continuar explorando" : "Continue exploring"}><Link href="/selected-artworks">{language === "es" ? "Piezas" : "Pieces"} ↗</Link><Link href="/situated-processes">{language === "es" ? "Procesos situados" : "Situated processes"} ↗</Link><Link href="/shared-practices">{language === "es" ? "Prácticas colectivas" : "Collective practices"} ↗</Link></nav>
+      <nav className="about-onward about-onward-three" aria-label={language === "es" ? "Continuar explorando" : "Continue exploring"}><Link href={localizedHref("/selected-artworks", language)}>{language === "es" ? "Piezas" : "Works"} ↗</Link><Link href={localizedHref("/situated-processes", language)}>{language === "es" ? "Procesos situados" : "Situated processes"} ↗</Link><Link href={localizedHref("/shared-practices", language)}>{language === "es" ? "Prácticas colectivas" : "Collective practices"} ↗</Link></nav>
     </main>
     <footer className="archive-footer"><FooterContact /><div className="language-switch" aria-label="Language"><button type="button" className={language === "en" ? "active" : ""} onClick={() => setLanguage("en")}>EN</button><span>/</span><button type="button" className={language === "es" ? "active" : ""} onClick={() => setLanguage("es")}>ES</button></div></footer>
   </>;

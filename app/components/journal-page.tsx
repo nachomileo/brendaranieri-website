@@ -1,12 +1,12 @@
 "use client";
 
-import { useEffect, useState } from "react";
 import type { JournalEntry } from "../../lib/journals";
 import { SiteNavigation } from "./site-navigation";
 import { SiteSignature } from "./site-signature";
 import { ZoomableArtworkImage } from "./zoomable-artwork-image";
 import { ArtworkSlider } from "./artwork-slider";
 import { FooterContact } from "./footer-contact";
+import { useSiteLanguage } from "./use-site-language";
 
 type Language = "es" | "en";
 function EditorialText({ text }: { text: string }) {
@@ -16,9 +16,8 @@ function EditorialText({ text }: { text: string }) {
 type JournalCopy = { title: string; intro: string[]; archive: string; narratives: string; sections: JournalEntry[]; cover?: JournalEntry["images"][number]; website?: { label: string; href: string } };
 
 export function JournalPage({ content, indexMode = "text", pageClassName = "" }: { content: Record<Language, JournalCopy>; indexMode?: "text" | "projects"; pageClassName?: string }) {
-  const [language, setLanguage] = useState<Language>("es");
+  const [language, setLanguage] = useSiteLanguage();
   const copy = content[language];
-  useEffect(() => { document.documentElement.lang = language; }, [language]);
   return <>
     <header className="archive-header"><SiteSignature /><SiteNavigation language={language} /></header>
     <main className={`journal-page gallery-journal-page ${pageClassName}`}>

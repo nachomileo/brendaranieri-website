@@ -7,6 +7,7 @@ import { SiteSignature } from "../../components/site-signature";
 import { SiteNavigation } from "../../components/site-navigation";
 import { ZoomableArtworkImage } from "../../components/zoomable-artwork-image";
 import { FooterContact } from "../../components/footer-contact";
+import { artworkDimensions, artworkEdition, artworkMaterial, localizedHref } from "../../../lib/i18n";
 
 type Props = { params: Promise<{ slug: string }>; searchParams: Promise<{ lang?: string }> };
 
@@ -50,16 +51,16 @@ export default async function ArtworkPage({ params, searchParams }: Props) {
       </header>
       <main className={`artwork-detail piece-page piece-${artwork.slug}`}>
         <section className="piece-showcase piece-showcase-static" aria-labelledby="artwork-title">
-          {images[0] ? <figure className="piece-opening-image"><ZoomableArtworkImage image={images[0]} sizes="(max-width: 760px) 100vw, 58vw" /></figure> : <div className={`placeholder piece-slider-fallback ${artwork.className}`} role="img" aria-label={`${code}, imagen pendiente`} />}
-          <section className="piece-information" aria-label={`Ficha técnica de ${code}`}>
-            <div className="piece-facts"><p>{language === "es" ? "Ficha técnica" : "Technical details"}</p><h1 id="artwork-title">{code}</h1><dl><div><dt>{language === "es" ? "Año" : "Year"}</dt><dd>{artwork.year}</dd></div><div><dt>{language === "es" ? "Materiales" : "Materials"}</dt><dd>{artwork.material}</dd></div><div><dt>{language === "es" ? "Dimensiones" : "Dimensions"}</dt><dd>{artwork.dimensions}</dd></div>{(artwork.edition || artwork.kind === "family") && <div><dt>{language === "es" ? "Tipo" : "Type"}</dt><dd>{artwork.kind === "family" ? (language === "es" ? "Familia de piezas únicas" : "Family of unique pieces") : artwork.edition}</dd></div>}</dl></div>
+          {images[0] ? <figure className="piece-opening-image"><ZoomableArtworkImage image={images[0]} sizes="(max-width: 760px) 100vw, 58vw" /></figure> : <div className={`placeholder piece-slider-fallback ${artwork.className}`} role="img" aria-label={language === "es" ? `${code}, imagen pendiente` : `${code}, image pending`} />}
+          <section className="piece-information" aria-label={language === "es" ? `Ficha técnica de ${code}` : `Technical details for ${code}`}>
+            <div className="piece-facts"><p>{language === "es" ? "Ficha técnica" : "Technical details"}</p><h1 id="artwork-title">{code}</h1><dl><div><dt>{language === "es" ? "Año" : "Year"}</dt><dd>{artwork.year}</dd></div><div><dt>{language === "es" ? "Materiales" : "Materials"}</dt><dd>{artworkMaterial(artwork.material, language)}</dd></div><div><dt>{language === "es" ? "Dimensiones" : "Dimensions"}</dt><dd>{artworkDimensions(artwork.dimensions, language)}</dd></div>{(artwork.edition || artwork.kind === "family") && <div><dt>{language === "es" ? "Tipo" : "Type"}</dt><dd>{artworkEdition(artwork.edition, artwork.kind, language)}</dd></div>}</dl></div>
           </section>
         </section>
-        {images.length > 1 && <section className={`piece-gallery ${artwork.kind === "family" ? "is-family" : ""} ${images.length > 4 ? "is-dense" : ""}`} aria-label={`Más imágenes de ${code}`}>
+        {images.length > 1 && <section className={`piece-gallery ${artwork.kind === "family" ? "is-family" : ""} ${images.length > 4 ? "is-dense" : ""}`} aria-label={language === "es" ? `Más imágenes de ${code}` : `More images of ${code}`}>
           {images.slice(1).map((image, imageIndex) => <figure key={image.src}><span>{code}.{imageIndex + 2}</span><ZoomableArtworkImage image={image} sizes="(max-width: 760px) 100vw, 45vw" /></figure>)}
         </section>}
-        {relatedProject && projectSlug && <aside className="piece-related-project"><span>{language === "es" ? "Proyecto relacionado" : "Related project"}</span><Link href={`/projects/${projectSlug}?lang=${language}`}>{language === "es" ? relatedProject.titleEs : relatedProject.titleEn} ↗</Link></aside>}
-        <nav className="artwork-pagination" aria-label="Pieza anterior y siguiente"><Link href={`/selected-artworks/${previous.slug}`}>← {artworkCode(previous)}</Link><Link href="/selected-artworks">Todas las piezas</Link><Link href={`/selected-artworks/${next.slug}`}>{artworkCode(next)} →</Link></nav>
+        {relatedProject && projectSlug && <aside className="piece-related-project"><span>{language === "es" ? "Proyecto relacionado" : "Related project"}</span><Link href={localizedHref(`/projects/${projectSlug}`, language)}>{language === "es" ? relatedProject.titleEs : relatedProject.titleEn} ↗</Link></aside>}
+        <nav className="artwork-pagination" aria-label={language === "es" ? "Pieza anterior y siguiente" : "Previous and next work"}><Link href={localizedHref(`/selected-artworks/${previous.slug}`, language)}>← {artworkCode(previous)}</Link><Link href={localizedHref("/selected-artworks", language)}>{language === "es" ? "Todas las piezas" : "All works"}</Link><Link href={localizedHref(`/selected-artworks/${next.slug}`, language)}>{artworkCode(next)} →</Link></nav>
       </main>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({ "@context": "https://schema.org", "@type": "VisualArtwork", name: artwork.title, identifier: code, dateCreated: artwork.year, artMedium: artwork.material, size: artwork.dimensions, creator: { "@type": "Person", name: "Brenda Ranieri", url: "https://brendaranieri.art" }, image: images.map((image) => new URL(image.src, "https://brendaranieri.art").toString()), url: `https://brendaranieri.art/selected-artworks/${artwork.slug}` }).replaceAll("<", "\\u003c") }} />
       <footer className="archive-footer"><FooterContact /><div className="language-switch"><Link className={language === "en" ? "active" : ""} href="?lang=en">EN</Link><span>/</span><Link className={language === "es" ? "active" : ""} href="?lang=es">ES</Link></div></footer>

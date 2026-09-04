@@ -11,6 +11,7 @@ import { SiteNavigation } from "../../components/site-navigation";
 import { ProjectEditorialGallery } from "../../components/project-editorial-gallery";
 import { OaxProjectBlocks } from "../../components/oax-project-blocks";
 import { FooterContact } from "../../components/footer-contact";
+import { localizedHref, projectFactLabel, projectFactValue } from "../../../lib/i18n";
 
 type Props = { params: Promise<{ slug: string }>; searchParams: Promise<{ lang?: string }> };
 
@@ -81,12 +82,12 @@ export default async function ProjectPage({ params, searchParams }: Props) {
           <a href="#project-archive"><span>02</span><strong>{language === "es" ? "Archivo" : "Archive"}</strong><small>{narrativeImages.length} {language === "es" ? "imágenes" : "images"}</small></a>
         </nav>
         <section className="project-overview" id="project-information" aria-label="Información del proyecto">
-          <div className="project-facts"><dl>{facts.filter(([key, , value]) => value && value !== "PENDIENTE" && !project.hiddenFacts?.includes(key)).map(([key, label, value]) => <div key={key}><dt>{project.factLabels?.[key] ?? label}</dt><dd>{value}</dd></div>)}</dl></div>
+          <div className="project-facts"><dl>{facts.filter(([key, , value]) => value && value !== "PENDIENTE" && !project.hiddenFacts?.includes(key)).map(([key, label, value]) => <div key={key}><dt>{projectFactLabel(project.factLabels?.[key] ?? label, language)}</dt><dd>{projectFactValue(value, language)}</dd></div>)}</dl></div>
           <article className="project-overview-copy"><span>{language === "es" ? "01 — Contexto y proceso" : "01 — Context and process"}</span>{bodyParagraphs.map((paragraph, paragraphIndex) => <p key={paragraphIndex}>{paragraph}</p>)}</article>
         </section>
         <div id="project-archive"><ProjectEditorialGallery title={presentation.title} code={projectCode} images={narrativeImages} featuredIndex={project.slug === "la-forma-del-agua-quieta" ? 6 : 0} text="" /></div>
         </>}
-        <nav className="artwork-pagination" aria-label="Previous and next project"><Link href={`/projects/${previous.slug}`}>← {previous.titleEs}</Link><Link href="/#projects">Todos los proyectos</Link><Link href={`/projects/${next.slug}`}>{next.titleEs} →</Link></nav>
+        <nav className="artwork-pagination" aria-label={language === "es" ? "Proyecto anterior y siguiente" : "Previous and next project"}><Link href={localizedHref(`/projects/${previous.slug}`, language)}>← {language === "es" ? previous.titleEs : previous.titleEn}</Link><Link href={localizedHref("/projects", language)}>{language === "es" ? "Todos los proyectos" : "All projects"}</Link><Link href={localizedHref(`/projects/${next.slug}`, language)}>{language === "es" ? next.titleEs : next.titleEn} →</Link></nav>
       </main>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({ "@context": "https://schema.org", "@type": "CreativeWork", name: presentation.title, description: language === "es" ? project.introEs : project.introEn, creator: { "@type": "Person", name: "Brenda Ranieri", url: "https://brendaranieri.art" }, dateCreated: project.period, locationCreated: project.place, artMedium: project.materials, image: narrativeImages.map((image) => new URL(image.src, "https://brendaranieri.art").toString()), url: `https://brendaranieri.art/projects/${project.slug}` }).replaceAll("<", "\\u003c") }} />
       <footer className="archive-footer"><FooterContact /><div className="language-switch"><Link className={language === "en" ? "active" : ""} href={`?lang=en`}>EN</Link><span>/</span><Link className={language === "es" ? "active" : ""} href={`?lang=es`}>ES</Link></div></footer>
