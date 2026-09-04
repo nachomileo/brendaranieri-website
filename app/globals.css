@@ -89,16 +89,17 @@ a{color:inherit;text-decoration:none}button{font:inherit;color:inherit}
 .piece-showcase-static .piece-showcase-heading{position:static;grid-column:1;grid-row:1}
 .piece-opening-image{grid-column:2;grid-row:1/span 2;display:flex;align-items:flex-start;justify-content:center;height:calc(100dvh - 136px);margin:0;overflow:hidden}
 .piece-opening-image .zoomable-artwork-image{height:100%;display:flex;align-items:flex-start;justify-content:center}
-.piece-opening-image img{width:100%;height:100%;object-fit:contain;object-position:center top}
+.piece-opening-image .zoomable-artwork-image img{width:100%;height:100%!important;object-fit:contain;object-position:center top}
+.piece-vasija-2 .piece-opening-image img,.piece-sin-titulo-i .piece-opening-image img,.piece-vasija-i .piece-opening-image img,.piece-sin-titulo-ii .piece-opening-image img,.piece-lo-atamos-con-alambre-obra .piece-opening-image img,.piece-fuente-agua-quieta .piece-opening-image img{object-position:center center}
 .piece-showcase-static .piece-information{grid-column:1;grid-row:2;display:block;align-self:stretch;padding:38px 3vw 0 0;border:0}
 .piece-showcase-static .piece-facts{min-height:100%;padding:0}
-.piece-showcase-static .piece-facts h2{margin:34px 0}
+.piece-showcase-static .piece-facts h1{margin:34px 0;font:300 clamp(30px,3.4vw,54px)/1 var(--font-display);letter-spacing:-.025em}
 .piece-showcase-static .piece-facts dl{margin-top:auto}
 @media(max-width:760px){
   .piece-showcase-static{display:flex;min-height:calc(100dvh - 64px);flex-direction:column;gap:24px;padding:26px 0 34px}
   .piece-opening-image{order:2;width:100%;height:min(54dvh,112vw)}
   .piece-showcase-static .piece-information{order:3;width:100%;padding:10px 0 0}
-  .piece-showcase-static .piece-facts{min-height:0}.piece-showcase-static .piece-facts h2{margin:24px 0}
+  .piece-showcase-static .piece-facts{min-height:0}.piece-showcase-static .piece-facts h1{margin:24px 0}
   .footer-contact{gap:12px}.back-to-top{bottom:16px}
 }
 
@@ -373,6 +374,7 @@ p,li,dd{font-weight:300}
 .project-showcase-intro .project-showcase-heading{margin-bottom:0}
 .project-showcase-intro .project-showcase-heading h1{margin-bottom:0}
 .project-block-index{margin-top:0}
+.project-block-index>a:first-child{padding-left:18px}
 .gallery-journal-heading h1{font-family:var(--font-display)!important;font-size:var(--type-page-title)!important;font-weight:300!important;line-height:.92!important;letter-spacing:-.025em!important}
 .gallery-journal-intro{font-family:var(--font-display)!important;font-size:var(--type-intro)!important;font-weight:300!important;line-height:1.4!important}
 .practice-narrative h2{font-family:var(--font-display)!important;font-size:clamp(24px,3vw,44px)!important;font-weight:300!important;line-height:1!important}

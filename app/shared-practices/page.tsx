@@ -12,7 +12,7 @@ import {
 
 const sharedCover = { src: "/images/journal/shared/shared-portada.webp", alt: "Práctica colectiva en Fresca. La Nave", width: 1950, height: 2600 };
 
-export const metadata: Metadata = { title: "Prácticas colectivas — Brenda Ranieri", description: "Talleres, colaboraciones e investigación colectiva de Brenda Ranieri." };
+export const metadata: Metadata = { title: "Prácticas colectivas — Brenda Ranieri", description: "Talleres, colaboraciones e investigación colectiva de Brenda Ranieri.", alternates: { canonical: "/shared-practices" } };
 const es = [
   { number: "01", title: "Arcillas silvestres y materiales del paisaje urbano", meta: "Junto a Luka Andeyro · Fresca. La Nave", text: ["Este taller nació del encuentro entre la investigación situada y geológica de Luka Andeyro y mi investigación material sobre el paisaje urbano de Carabanchel. Cruzamos ambas miradas para caminar, recolectar y reconocer las posibilidades cerámicas de los materiales encontrados cerca de nosotras.", "La mesa compartida se convirtió en un mapa temporal: tierras, fragmentos y muestras pasaron de mano en mano. Más que transmitir un método cerrado, quise abrir mi proceso y dejar que las preguntas de cada participante modificaran el curso de la investigación."], images: sharedWorkshopDiary },
   { number: "02", title: "Agua, arcilla y registros", meta: "Junto a Ana Paes y Paula Cid Cerezo · 2025—2026", text: [

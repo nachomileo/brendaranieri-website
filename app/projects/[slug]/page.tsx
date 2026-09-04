@@ -21,7 +21,17 @@ export function generateStaticParams() {
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const project = getProject((await params).slug);
   const presentation = project ? projectPresentation(project, "es") : undefined;
-  return project && presentation ? { title: `${presentation.title} — Brenda Ranieri`, description: project.introEs } : {};
+  if (!project || !presentation) return {};
+  const title = `${presentation.title} | Brenda Ranieri`;
+  const url = `/projects/${project.slug}`;
+  const cover = getProjectImages(project.slug)[0];
+  return {
+    title,
+    description: project.introEs,
+    alternates: { canonical: url },
+    openGraph: { type: "article", title, description: project.introEs, url, images: cover ? [{ url: cover.src, alt: cover.alt }] : undefined },
+    twitter: { card: "summary_large_image", title, description: project.introEs, images: cover ? [cover.src] : undefined },
+  };
 }
 
 export default async function ProjectPage({ params, searchParams }: Props) {
@@ -78,6 +88,7 @@ export default async function ProjectPage({ params, searchParams }: Props) {
         </>}
         <nav className="artwork-pagination" aria-label="Previous and next project"><Link href={`/projects/${previous.slug}`}>← {previous.titleEs}</Link><Link href="/#projects">Todos los proyectos</Link><Link href={`/projects/${next.slug}`}>{next.titleEs} →</Link></nav>
       </main>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({ "@context": "https://schema.org", "@type": "CreativeWork", name: presentation.title, description: language === "es" ? project.introEs : project.introEn, creator: { "@type": "Person", name: "Brenda Ranieri", url: "https://brendaranieri.art" }, dateCreated: project.period, locationCreated: project.place, artMedium: project.materials, image: narrativeImages.map((image) => new URL(image.src, "https://brendaranieri.art").toString()), url: `https://brendaranieri.art/projects/${project.slug}` }).replaceAll("<", "\\u003c") }} />
       <footer className="archive-footer"><FooterContact /><div className="language-switch"><Link className={language === "en" ? "active" : ""} href={`?lang=en`}>EN</Link><span>/</span><Link className={language === "es" ? "active" : ""} href={`?lang=es`}>ES</Link></div></footer>
     </>
   );

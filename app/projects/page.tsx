@@ -4,6 +4,7 @@ import ProjectsArchive from "./projects-archive";
 export const metadata: Metadata = {
   title: "Exhibitions & Projects — Brenda Ranieri",
   description: "Exhibitions, installations, collaborations and situated material research by visual artist Brenda Ranieri.",
+  alternates: { canonical: "/projects" },
 };
 
 export default function ProjectsPage() {
