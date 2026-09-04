@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import "./globals.css";
+import { BackToTop } from "./components/back-to-top";
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://brendaranieri.art"),
@@ -22,7 +23,7 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="es">
-      <body>{children}<script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({ "@context": "https://schema.org", "@type": "Person", name: "Brenda Ranieri", jobTitle: "Artista visual y ceramista", url: "https://brendaranieri.art", sameAs: ["https://www.instagram.com/brendaranieri.studio/"] }).replaceAll("<", "\\u003c") }} /></body>
+      <body>{children}<BackToTop /><script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({ "@context": "https://schema.org", "@type": "Person", name: "Brenda Ranieri", jobTitle: "Artista visual y ceramista", url: "https://brendaranieri.art", sameAs: ["https://www.instagram.com/brendaranieri.studio/"] }).replaceAll("<", "\\u003c") }} /></body>
     </html>
   );
 }

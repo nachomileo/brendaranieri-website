@@ -7,6 +7,7 @@ import { getProjectCover } from "../../lib/project-images";
 import { projectPresentation, projectSortDate, type ProjectCategory, type ProjectLanguage } from "../../lib/project-presentation";
 import { projects } from "../../lib/projects";
 import { SiteSignature } from "../components/site-signature";
+import { FooterContact } from "../components/footer-contact";
 import { SiteNavigation } from "../components/site-navigation";
 
 const chronologicalProjects = [...projects].sort((a, b) => projectSortDate(b) - projectSortDate(a));
@@ -46,6 +47,6 @@ export default function ProjectsArchive() {
       </div>
       <nav className="archive-onward" aria-label={language === "es" ? "Continuar explorando" : "Continue exploring"}><Link href="/about">About ↗</Link><Link href="/selected-artworks">{language === "es" ? "Piezas" : "Pieces"} ↗</Link><Link href="/situated-processes">{language === "es" ? "Procesos situados" : "Situated processes"} ↗</Link></nav>
     </main>
-    <footer className="archive-footer"><span>Brenda Ranieri © 2026</span><div className="language-switch" aria-label="Language"><button type="button" className={language === "en" ? "active" : ""} onClick={() => setLanguage("en")}>EN</button><span>/</span><button type="button" className={language === "es" ? "active" : ""} onClick={() => setLanguage("es")}>ES</button></div></footer>
+    <footer className="archive-footer"><FooterContact /><div className="language-switch" aria-label="Language"><button type="button" className={language === "en" ? "active" : ""} onClick={() => setLanguage("en")}>EN</button><span>/</span><button type="button" className={language === "es" ? "active" : ""} onClick={() => setLanguage("es")}>ES</button></div></footer>
   </>;
 }

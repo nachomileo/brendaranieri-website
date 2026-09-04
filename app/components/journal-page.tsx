@@ -6,6 +6,7 @@ import { SiteNavigation } from "./site-navigation";
 import { SiteSignature } from "./site-signature";
 import { ZoomableArtworkImage } from "./zoomable-artwork-image";
 import { ArtworkSlider } from "./artwork-slider";
+import { FooterContact } from "./footer-contact";
 
 type Language = "es" | "en";
 function EditorialText({ text }: { text: string }) {
@@ -30,6 +31,6 @@ export function JournalPage({ content, indexMode = "text", pageClassName = "" }:
         {section.afterImages && section.afterImages.length > 0 && <div className="practice-gallery practice-gallery-after" aria-label={language === "es" ? "Continuación del diario" : "Diary continuation"}>{section.afterImages.map((image, index) => <figure className={`practice-image-${index % 6 + 1} ${image.width < 700 ? "is-low-resolution" : ""}`} key={image.src}><span className="practice-image-ref">{section.number}.{String(index + 1).padStart(2, "0")}</span><ZoomableArtworkImage image={image} sizes="(max-width: 760px) 100vw, 50vw" /></figure>)}</div>}
       </section>)}</div>
     </main>
-    <footer className="archive-footer"><span>Brenda Ranieri © 2026</span><div className="language-switch" aria-label="Language"><button type="button" className={language === "en" ? "active" : ""} onClick={() => setLanguage("en")}>EN</button><span>/</span><button type="button" className={language === "es" ? "active" : ""} onClick={() => setLanguage("es")}>ES</button></div></footer>
+    <footer className="archive-footer"><FooterContact /><div className="language-switch" aria-label="Language"><button type="button" className={language === "en" ? "active" : ""} onClick={() => setLanguage("en")}>EN</button><span>/</span><button type="button" className={language === "es" ? "active" : ""} onClick={() => setLanguage("es")}>ES</button></div></footer>
   </>;
 }

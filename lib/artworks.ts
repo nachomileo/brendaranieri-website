@@ -76,7 +76,8 @@ export function getArtwork(slug: string) {
 }
 
 export function artworkCode(artwork: Artwork) {
-  return `A.${String(artworkRecords.indexOf(artwork) + 1).padStart(2, "0")}`;
+  const prefix = artwork.kind === "family" ? "F" : "A";
+  return `${prefix}.${String(artworkRecords.indexOf(artwork) + 1).padStart(2, "0")}`;
 }
 
 const archiveOrder = [

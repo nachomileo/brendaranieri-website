@@ -1,6 +1,5 @@
 import type { ProjectImage } from "../../lib/project-images";
 import { ZoomableArtworkImage } from "./zoomable-artwork-image";
-import { ArtworkSlider } from "./artwork-slider";
 
 type Props = {
   title: string;
@@ -30,13 +29,10 @@ export function ProjectEditorialGallery({ title, code, images, featuredIndex = 0
   const excluded = new Set(excludedFiles[code] ?? []);
   const visible = ordered.filter((image) => !excluded.has(image.src.split("/").at(-1) ?? ""));
 
-  const sliderImages = visible.slice(0, Math.min(5, visible.length));
-  const galleryImages = visible.slice(sliderImages.length);
   return <section className="project-editorial project-image-block" aria-label={`Archivo de ${title}`}>
     <header className="project-image-block-heading"><span>Archivo del proyecto</span><span>{String(visible.length).padStart(2, "0")} imágenes</span></header>
-    <div className="project-archive-slider"><ArtworkSlider images={sliderImages} code={code} /></div>
-    {galleryImages.length > 0 && <div className="project-editorial-grid is-dense">
-      {galleryImages.map((image, imageIndex) => <figure key={image.src}><span>{code}.{String(sliderImages.length + imageIndex + 1).padStart(2, "0")}</span><ZoomableArtworkImage image={image} sizes="(max-width: 760px) 50vw, 33vw" /></figure>)}
-    </div>}
+    <div className="project-editorial-grid is-dense">
+      {visible.map((image, imageIndex) => <figure key={image.src}><span>{code}.{String(imageIndex + 1).padStart(2, "0")}</span><ZoomableArtworkImage image={image} sizes="(max-width: 760px) 50vw, 33vw" /></figure>)}
+    </div>
   </section>;
 }

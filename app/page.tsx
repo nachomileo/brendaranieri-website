@@ -4,6 +4,7 @@ import { useEffect, useState, type CSSProperties } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { SiteSignature } from "./components/site-signature";
+import { FooterContact } from "./components/footer-contact";
 import { artworkCode, homeArtworks } from "../lib/artworks";
 import { getHomeProjectImages } from "../lib/project-images";
 import { projectPresentation } from "../lib/project-presentation";
@@ -22,7 +23,7 @@ const copy = {
     view: "View project",
     viewAllProjects: "View all",
     projects: "Exhibitions & Projects",
-    bio: "Visual artist and ceramicist. She researches how matter, territory and collective processes can open new forms of creation.",
+    bio: "Visual artist and ceramicist. I research how matter, territory and collective processes can open new forms of creation.",
     works: "Pieces",
     studio: "Situated Processes",
     studioText: "I gather, classify, test and archive materials from the landscape to incorporate them into works and installations. This process connects fieldwork, laboratory research and artistic practice.",
@@ -37,7 +38,7 @@ const copy = {
     view: "Ver proyecto",
     viewAllProjects: "Ver todos",
     projects: "Exposiciones y proyectos",
-    bio: "Artista visual y ceramista. Investiga cómo la materia, el territorio y los procesos colectivos pueden abrir nuevas formas de creación.",
+    bio: "Artista visual y ceramista. Investigo cómo la materia, el territorio y los procesos colectivos pueden abrir nuevas formas de creación.",
     works: "Piezas",
     studio: "Procesos situados",
     studioText: "Recolecto, clasifico, pruebo y archivo materiales del paisaje para incorporarlos al diseño de piezas e instalaciones. Este recorrido conecta el trabajo de campo, el laboratorio y la práctica artística.",
@@ -145,7 +146,7 @@ export default function Home() {
       </main>
 
       <footer className="site-footer">
-        <div><span className="footer-signature">© 2026</span><a href="mailto:info@brendaranieri.art" target="_blank" rel="noopener noreferrer">{t.contact}</a><a href="https://www.instagram.com/brendaranieri.studio/" target="_blank" rel="noopener noreferrer">Instagram</a></div>
+        <FooterContact />
         <div className="language-switch" aria-label="Language"><button type="button" className={language === "en" ? "active" : ""} onClick={() => setLanguage("en")} aria-pressed={language === "en"}>EN</button><span>/</span><button type="button" className={language === "es" ? "active" : ""} onClick={() => setLanguage("es")} aria-pressed={language === "es"}>ES</button></div>
       </footer>
     </>

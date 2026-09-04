@@ -10,6 +10,7 @@ import { SiteSignature } from "../../components/site-signature";
 import { SiteNavigation } from "../../components/site-navigation";
 import { ProjectEditorialGallery } from "../../components/project-editorial-gallery";
 import { OaxProjectBlocks } from "../../components/oax-project-blocks";
+import { FooterContact } from "../../components/footer-contact";
 
 type Props = { params: Promise<{ slug: string }>; searchParams: Promise<{ lang?: string }> };
 
@@ -77,7 +78,7 @@ export default async function ProjectPage({ params, searchParams }: Props) {
         </>}
         <nav className="artwork-pagination" aria-label="Previous and next project"><Link href={`/projects/${previous.slug}`}>← {previous.titleEs}</Link><Link href="/#projects">Todos los proyectos</Link><Link href={`/projects/${next.slug}`}>{next.titleEs} →</Link></nav>
       </main>
-      <footer className="archive-footer"><span>Brenda Ranieri © 2026</span><div className="language-switch"><Link className={language === "en" ? "active" : ""} href={`?lang=en`}>EN</Link><span>/</span><Link className={language === "es" ? "active" : ""} href={`?lang=es`}>ES</Link></div></footer>
+      <footer className="archive-footer"><FooterContact /><div className="language-switch"><Link className={language === "en" ? "active" : ""} href={`?lang=en`}>EN</Link><span>/</span><Link className={language === "es" ? "active" : ""} href={`?lang=es`}>ES</Link></div></footer>
     </>
   );
 }
