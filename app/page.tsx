@@ -18,7 +18,7 @@ function EditorialLine({ value }: { value: string }) {
 
 const copy = {
   en: {
-    nav: ["Exhibitions & Projects", "About", "Works", "Situated Processes", "Shared Practices"],
+    nav: ["Exhibitions & Projects", "About", "Artworks", "Situated Processes", "Shared Practices"],
     practice: "Visual artist working with matter, territory, water and transformation.",
     view: "View project",
     viewAllProjects: "View all",

@@ -6,7 +6,7 @@ import { localizedHref } from "../../lib/i18n";
 
 const labels = {
   es: ["Exposiciones y proyectos", "About", "Piezas", "Procesos situados", "Prácticas colectivas"],
-  en: ["Exhibitions & projects", "About", "Works", "Situated processes", "Collective practices"],
+  en: ["Exhibitions & projects", "About", "Artworks", "Situated processes", "Collective practices"],
 } as const;
 const hrefs = ["/projects", "/about", "/selected-artworks", "/situated-processes", "/shared-practices"] as const;
 
