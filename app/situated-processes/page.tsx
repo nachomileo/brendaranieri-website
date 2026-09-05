@@ -41,7 +41,12 @@ const artisticFollowingImages = [...finalWorkImages.slice(3), ...situatedArtisti
 const situatedCover: JournalImage = { src: "/images/journal/diary/situated-artistic/situated-03-practica-005.webp", alt: "Estudio de Brenda Ranieri y archivo de procesos", width: 2600, height: 1593 };
 const noraNote = getNote("pequenas-arqueologias-del-rio-nora")!;
 const noraImages = noraNote.images;
-const noraImageSources = new Set(noraImages.map((image) => image.src));
+const noraImageSources = new Set([
+  ...noraImages.map((image) => image.src),
+  "/images/journal/diary/situated-research/situated-01-investigacion-19.webp",
+  "/images/journal/diary/situated-research/situated-01-investigacion-20.webp",
+  "/images/journal/diary/situated-research/situated-01-investigacion-21.webp",
+]);
 const noraEs = noraNote.textEs;
 /*
   "Una tarde de verano salí a recorrer los bordes del río Nora, en Asturias, junto al terreno donde estará mi nuevo taller. Vi varias bolsas de plástico atrapadas entre las piedras y me metí al río para quitarlas. No había planeado recolectar nada, pero una cosa fue llevando a la otra.",

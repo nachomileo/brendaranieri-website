@@ -50,9 +50,13 @@ export default async function ProjectPage({ params, searchParams }: Props) {
   const next = projects[(index + 1) % projects.length];
   const bodyParagraphs = (language === "es" ? project.bodyEs : project.bodyEn).split(/\n\s*\n/).filter(Boolean).map((paragraph) => paragraph.replaceAll("*", ""));
   const projectCode = `P.${String(index + 1).padStart(2, "0")}`;
-  const projectNote = project.slug === "la-forma-del-agua-quieta" ? getNote("el-agua-nunca-permanece-quieta") : undefined;
+  const projectNote = project.slug === "la-forma-del-agua-quieta" ? getNote("la-caida-de-un-arbol") : undefined;
   const projectNoteSources = new Set(projectNote?.images.map((image) => image.src) ?? []);
-  const archiveImages = projectNote ? narrativeImages.filter((image) => !projectNoteSources.has(image.src)) : narrativeImages;
+  const retiredNoteImages = new Set([
+    "/images/projects/la-forma-del-agua-quieta/la-forma-del-agua-quieta-072026-brenda-ranieri-lapislazuli-5.webp",
+    "/images/projects/la-forma-del-agua-quieta/la-forma-del-agua-quieta-072026-brenda-ranieri-lapislazuli-8.webp",
+  ]);
+  const archiveImages = projectNote ? narrativeImages.filter((image) => !projectNoteSources.has(image.src) && !retiredNoteImages.has(image.src)) : narrativeImages;
   const loadOaxFolder = (folder: string, alt: string) => {
     const directory = path.join(process.cwd(), "public/images/projects/oax-car-38-57", folder);
     return readdirSync(directory)
