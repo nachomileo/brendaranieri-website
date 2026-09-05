@@ -10,7 +10,7 @@ export type NoteRecord = {
 
 export const notes: NoteRecord[] = [
   {
-    slug: "la-caida-de-un-arbol", date: "2026-08-20", year: "2026",
+    slug: "la-caida-de-un-arbol", date: "2026-09-05", year: "2026",
     titleEs: "La caída de un árbol", titleEn: "The fall of a tree",
     contextEs: "La forma del agua quieta · Lapislázuli, Madrid / Río Nora, Asturias",
     contextEn: "The Shape of Still Water · Lapislázuli, Madrid / Nora River, Asturias",
@@ -78,3 +78,9 @@ export const notes: NoteRecord[] = [
 ];
 
 export function getNote(slug: string) { return notes.find((note) => note.slug === slug); }
+
+export function formatNoteDate(date: string, language: "es" | "en") {
+  return new Intl.DateTimeFormat(language === "es" ? "es-ES" : "en-GB", {
+    day: "numeric", month: "long", year: "numeric", timeZone: "UTC",
+  }).format(new Date(`${date}T00:00:00Z`));
+}
