@@ -19,7 +19,7 @@ function EditorialLine({ value }: { value: string }) {
 
 const copy = {
   en: {
-    nav: ["Exhibitions & Projects", "About", "Artworks", "Situated Processes", "Shared Practices"],
+    nav: ["Exhibitions & Projects", "About", "Artworks", "Situated Processes", "Shared Practices", "Notes"],
     practice: "Visual artist working with matter, territory, water and transformation.",
     view: "View project",
     viewAllProjects: "View all",
@@ -34,7 +34,7 @@ const copy = {
     contact: "Contact",
   },
   es: {
-    nav: ["Exposiciones y proyectos", "About", "Piezas", "Procesos situados", "Prácticas colectivas"],
+    nav: ["Exposiciones y proyectos", "About", "Piezas", "Procesos situados", "Prácticas colectivas", "Notas"],
     practice: "Artista visual. Materia, territorio, agua y transformación.",
     view: "Ver proyecto",
     viewAllProjects: "Ver todos",
@@ -50,7 +50,7 @@ const copy = {
   },
 } as const;
 
-const sections = ["projects", "bio", "works", "processes", "shared"] as const;
+const sections = ["projects", "bio", "works", "processes", "shared", "notes"] as const;
 const homeProjectOrder = [
   "la-forma-del-agua-quieta",
   "oax-car-38-57",
@@ -79,7 +79,7 @@ export default function Home() {
         <SiteSignature href="#page-top" />
         <button className="menu-toggle" type="button" aria-expanded={menuOpen} onClick={() => setMenuOpen(!menuOpen)}>Menu</button>
         <nav className={menuOpen ? "primary-nav is-open" : "primary-nav"} aria-label="Primary navigation">
-          {sections.map((id, index) => { const href = id === "projects" ? "/projects" : id === "bio" ? "/about" : `#${id}`; return <a key={id} href={localizedHref(href, language)} onClick={() => setMenuOpen(false)}>{t.nav[index]}</a>; })}
+          {sections.map((id, index) => { const href = id === "projects" ? "/projects" : id === "bio" ? "/about" : id === "notes" ? "/notes" : `#${id}`; return <a key={id} href={localizedHref(href, language)} onClick={() => setMenuOpen(false)}>{t.nav[index]}</a>; })}
         </nav>
       </header>
 

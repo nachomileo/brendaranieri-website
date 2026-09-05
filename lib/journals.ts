@@ -8,6 +8,7 @@ export type JournalEntry = {
   sequences?: { label: string; images: JournalImage[]; layout?: "slider" | "grid" }[];
   wideText?: boolean;
   afterImages?: JournalImage[];
+  editorialNotes?: { title: string; meta: string; text: string[]; images: JournalImage[]; href?: string }[];
 };
 
 const image = (section: string, file: string, alt: string, width: number, height: number): JournalImage => ({

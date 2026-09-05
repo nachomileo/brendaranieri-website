@@ -5,10 +5,10 @@ import { useEffect, useState } from "react";
 import { localizedHref } from "../../lib/i18n";
 
 const labels = {
-  es: ["Exposiciones y proyectos", "About", "Piezas", "Procesos situados", "Prácticas colectivas"],
-  en: ["Exhibitions & projects", "About", "Artworks", "Situated processes", "Collective practices"],
+  es: ["Exposiciones y proyectos", "About", "Piezas", "Procesos situados", "Prácticas colectivas", "Notas"],
+  en: ["Exhibitions & projects", "About", "Artworks", "Situated processes", "Collective practices", "Notes"],
 } as const;
-const hrefs = ["/projects", "/about", "/selected-artworks", "/situated-processes", "/shared-practices"] as const;
+const hrefs = ["/projects", "/about", "/selected-artworks", "/situated-processes", "/shared-practices", "/notes"] as const;
 
 export function SiteNavigation({ language = "es" }: { language?: "es" | "en" }) {
   const [menuOpen, setMenuOpen] = useState(false);

@@ -12,6 +12,8 @@ import { ProjectEditorialGallery } from "../../components/project-editorial-gall
 import { OaxProjectBlocks } from "../../components/oax-project-blocks";
 import { FooterContact } from "../../components/footer-contact";
 import { localizedHref, projectFactLabel, projectFactValue } from "../../../lib/i18n";
+import { getNote } from "../../../lib/notes";
+import { NoteArticle } from "../../components/note-article";
 
 type Props = { params: Promise<{ slug: string }>; searchParams: Promise<{ lang?: string }> };
 
@@ -48,6 +50,9 @@ export default async function ProjectPage({ params, searchParams }: Props) {
   const next = projects[(index + 1) % projects.length];
   const bodyParagraphs = (language === "es" ? project.bodyEs : project.bodyEn).split(/\n\s*\n/).filter(Boolean).map((paragraph) => paragraph.replaceAll("*", ""));
   const projectCode = `P.${String(index + 1).padStart(2, "0")}`;
+  const projectNote = project.slug === "la-forma-del-agua-quieta" ? getNote("el-agua-nunca-permanece-quieta") : undefined;
+  const projectNoteSources = new Set(projectNote?.images.map((image) => image.src) ?? []);
+  const archiveImages = projectNote ? narrativeImages.filter((image) => !projectNoteSources.has(image.src)) : narrativeImages;
   const loadOaxFolder = (folder: string, alt: string) => {
     const directory = path.join(process.cwd(), "public/images/projects/oax-car-38-57", folder);
     return readdirSync(directory)
@@ -80,13 +85,15 @@ export default async function ProjectPage({ params, searchParams }: Props) {
         ) : <>
         <nav className="oax-block-index project-block-index" aria-label={`Índice de ${presentation.title}`}>
           <a href="#project-information"><span>01</span><strong>{language === "es" ? "Contexto e información" : "Context and information"}</strong><small>{language === "es" ? "Ficha y texto del proyecto" : "Project facts and text"}</small></a>
-          <a href="#project-archive"><span>02</span><strong>{language === "es" ? "Archivo" : "Archive"}</strong><small>{narrativeImages.length} {language === "es" ? "imágenes" : "images"}</small></a>
+          <a href="#project-archive"><span>02</span><strong>{language === "es" ? "Archivo" : "Archive"}</strong><small>{archiveImages.length} {language === "es" ? "imágenes" : "images"}</small></a>
+          {projectNote && <a href="#project-notes"><span>03</span><strong>{language === "es" ? "Notas" : "Notes"}</strong><small>{language === "es" ? "Reflexiones de investigación" : "Research reflections"}</small></a>}
         </nav>
         <section className="project-overview" id="project-information" aria-label="Información del proyecto">
           <div className="project-facts"><dl>{facts.filter(([key, , value]) => value && value !== "PENDIENTE" && !project.hiddenFacts?.includes(key)).map(([key, label, value]) => <div key={key}><dt>{projectFactLabel(project.factLabels?.[key] ?? label, language)}</dt><dd>{projectFactValue(value, language)}</dd></div>)}</dl></div>
           <article className="project-overview-copy"><span>{language === "es" ? "01 — Contexto y proceso" : "01 — Context and process"}</span>{bodyParagraphs.map((paragraph, paragraphIndex) => <p key={paragraphIndex}>{paragraph}</p>)}</article>
         </section>
-        <div id="project-archive"><ProjectEditorialGallery title={presentation.title} code={projectCode} images={narrativeImages} featuredIndex={project.slug === "la-forma-del-agua-quieta" ? 6 : 0} text="" /></div>
+        <div id="project-archive"><ProjectEditorialGallery title={presentation.title} code={projectCode} images={archiveImages} featuredIndex={project.slug === "la-forma-del-agua-quieta" ? 5 : 0} text="" /></div>
+        {projectNote && <section className="project-notes" id="project-notes"><div className="project-notes-heading"><span>03</span><h2>{language === "es" ? "Notas" : "Notes"}</h2></div><NoteArticle note={projectNote} language={language} compact /></section>}
         </>}
         <nav className="artwork-pagination" aria-label={language === "es" ? "Proyecto anterior y siguiente" : "Previous and next project"}><Link href={localizedHref(`/projects/${previous.slug}`, language)}>← {language === "es" ? previous.titleEs : previous.titleEn}</Link><Link href={localizedHref("/projects", language)}>{language === "es" ? "Todos los proyectos" : "All projects"}</Link><Link href={localizedHref(`/projects/${next.slug}`, language)}>{language === "es" ? next.titleEs : next.titleEn} →</Link></nav>
       </main>
