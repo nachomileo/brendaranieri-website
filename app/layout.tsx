@@ -1,9 +1,7 @@
 import type { Metadata } from "next";
-import Script from "next/script";
 import "./globals.css";
 import { BackToTop } from "./components/back-to-top";
-
-const googleAnalyticsId = "G-Q141K1YRH3";
+import { CookieConsent } from "./components/cookie-consent";
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://brendaranieri.art"),
@@ -36,14 +34,8 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
       <body>
         {children}
         <BackToTop />
+        <CookieConsent />
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({ "@context": "https://schema.org", "@graph": [{ "@type": "Person", "@id": "https://brendaranieri.art/#person", name: "Brenda Ranieri", jobTitle: "Artista visual y ceramista", description: "Artista visual cuya práctica investiga la cerámica, la materia, el territorio, el agua y los procesos colectivos.", url: "https://brendaranieri.art", image: "https://brendaranieri.art/images/hero-la-forma-del-agua-quieta-final.webp", sameAs: ["https://www.instagram.com/brendaranieri.studio/"], knowsAbout: ["Cerámica contemporánea", "Investigación material", "Arcillas locales", "Arte situado", "Prácticas colectivas"] }, { "@type": "WebSite", "@id": "https://brendaranieri.art/#website", url: "https://brendaranieri.art", name: "Brenda Ranieri", inLanguage: ["es", "en"], publisher: { "@id": "https://brendaranieri.art/#person" } }] }).replaceAll("<", "\\u003c") }} />
-        <Script src={`https://www.googletagmanager.com/gtag/js?id=${googleAnalyticsId}`} strategy="afterInteractive" />
-        <Script id="google-analytics" strategy="afterInteractive">{`
-          window.dataLayer = window.dataLayer || [];
-          function gtag(){dataLayer.push(arguments);}
-          gtag('js', new Date());
-          gtag('config', '${googleAnalyticsId}');
-        `}</Script>
       </body>
     </html>
   );
