@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState, type CSSProperties } from "react";
+import { ArrowIcon } from "./arrow-icon";
 import { usePathname } from "next/navigation";
 
 export function BackToTop() {
@@ -22,5 +23,5 @@ export function BackToTop() {
   }, [pathname]);
 
   const style = { "--footer-clearance": `${footerClearance}px` } as CSSProperties;
-  return <><span className="page-top-sentinel" data-page-top aria-hidden="true" /><button className={`back-to-top ${visible ? "is-visible" : ""} ${footerClearance ? "is-above-footer" : ""}`} style={style} type="button" onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })} aria-label="Volver arriba" tabIndex={visible ? 0 : -1}>↑</button></>;
+  return <><span className="page-top-sentinel" data-page-top aria-hidden="true" /><button className={`back-to-top ${visible ? "is-visible" : ""} ${footerClearance ? "is-above-footer" : ""}`} style={style} type="button" onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })} aria-label="Volver arriba" tabIndex={visible ? 0 : -1}><ArrowIcon direction="up" /></button></>;
 }

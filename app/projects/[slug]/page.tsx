@@ -52,6 +52,7 @@ export default async function ProjectPage({ params, searchParams }: Props) {
     const directory = path.join(process.cwd(), "public/images/projects/oax-car-38-57", folder);
     return readdirSync(directory)
       .filter((name) => /\.(?:webp|png|jpe?g)$/i.test(name))
+      .filter((name) => !["28472-1-scan-33-2.webp", "28472-1-scan-34-2.webp"].includes(name))
       .sort((a, b) => a.localeCompare(b, "es", { numeric: true }))
       .map((name, imageIndex) => ({
         src: `/images/projects/oax-car-38-57/${folder.split("/").map(encodeURIComponent).join("/")}/${encodeURIComponent(name)}`,

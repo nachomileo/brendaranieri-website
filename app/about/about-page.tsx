@@ -5,6 +5,7 @@ import Link from "next/link";
 import { SiteNavigation } from "../components/site-navigation";
 import { SiteSignature } from "../components/site-signature";
 import { FooterContact } from "../components/footer-contact";
+import { ArrowIcon } from "../components/arrow-icon";
 import { getProjectCover } from "../../lib/project-images";
 import { projectPresentation, projectSortDate } from "../../lib/project-presentation";
 import { projects } from "../../lib/projects";
@@ -52,12 +53,12 @@ export default function AboutPage() {
           <h1>Brenda Ranieri</h1>
           <p className="about-lead">{copy.lead}</p>
           <div className="about-statement-copy">{copy.statement.map((paragraph) => <p key={paragraph}>{paragraph}</p>)}</div>
-          <div className="about-profile-links"><a href="mailto:info@brendaranieri.art">Email ↗</a><a href="https://www.instagram.com/brendaranieri.studio/" target="_blank" rel="noopener noreferrer">Instagram ↗</a></div>
+          <div className="about-profile-links"><a href="mailto:info@brendaranieri.art">Email <ArrowIcon /></a><a href="https://www.instagram.com/brendaranieri.studio/" target="_blank" rel="noopener noreferrer">Instagram <ArrowIcon /></a><a href="https://www.fresco.art/" target="_blank" rel="noopener noreferrer">{language === "es" ? "Visitar Fresca. La Nave" : "Visit Fresca. La Nave"} <ArrowIcon /></a></div>
         </div>
         <figure className="about-profile-image"><Image src="/images/journal/home/about-portada-interior.webp" alt="Retrato de Brenda Ranieri en su estudio de Carabanchel" fill priority sizes="(max-width: 760px) 100vw, 40vw" quality={92} /></figure>
       </section>
       <section className="about-projects about-projects-all" aria-labelledby="about-projects-title">
-        <header><span id="about-projects-title">{copy.projects}</span><Link href={localizedHref("/projects", language)}>{copy.archive} ↗</Link></header>
+        <header><span id="about-projects-title">{copy.projects}</span><Link href={localizedHref("/projects", language)}>{copy.archive} <ArrowIcon /></Link></header>
         <div>{chronologicalProjects.map((project, index) => {
           const presentation = projectPresentation(project, language);
           const cover = getProjectCover(project.slug);
@@ -68,7 +69,7 @@ export default function AboutPage() {
           </Link>;
         })}</div>
       </section>
-      <nav className="about-onward about-onward-three" aria-label={language === "es" ? "Continuar explorando" : "Continue exploring"}><Link href={localizedHref("/selected-artworks", language)}>{language === "es" ? "Piezas" : "Works"} ↗</Link><Link href={localizedHref("/situated-processes", language)}>{language === "es" ? "Procesos situados" : "Situated processes"} ↗</Link><Link href={localizedHref("/shared-practices", language)}>{language === "es" ? "Prácticas colectivas" : "Collective practices"} ↗</Link></nav>
+      <nav className="about-onward about-onward-three" aria-label={language === "es" ? "Continuar explorando" : "Continue exploring"}><Link href={localizedHref("/selected-artworks", language)}>{language === "es" ? "Piezas" : "Works"} <ArrowIcon /></Link><Link href={localizedHref("/situated-processes", language)}>{language === "es" ? "Procesos situados" : "Situated processes"} <ArrowIcon /></Link><Link href={localizedHref("/shared-practices", language)}>{language === "es" ? "Prácticas colectivas" : "Collective practices"} <ArrowIcon /></Link></nav>
     </main>
     <footer className="archive-footer"><FooterContact /><div className="language-switch" aria-label="Language"><button type="button" className={language === "en" ? "active" : ""} onClick={() => setLanguage("en")}>EN</button><span>/</span><button type="button" className={language === "es" ? "active" : ""} onClick={() => setLanguage("es")}>ES</button></div></footer>
   </>;

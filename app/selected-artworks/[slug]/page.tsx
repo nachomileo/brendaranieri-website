@@ -5,6 +5,7 @@ import { artworkCode, artworks, getArtwork, getArtworkProjectSlug } from "../../
 import { getProject } from "../../../lib/projects";
 import { SiteSignature } from "../../components/site-signature";
 import { SiteNavigation } from "../../components/site-navigation";
+import { ArrowIcon } from "../../components/arrow-icon";
 import { ZoomableArtworkImage } from "../../components/zoomable-artwork-image";
 import { FooterContact } from "../../components/footer-contact";
 import { artworkDimensions, artworkEdition, artworkMaterial, localizedHref } from "../../../lib/i18n";
@@ -59,7 +60,7 @@ export default async function ArtworkPage({ params, searchParams }: Props) {
         {images.length > 1 && <section className={`piece-gallery ${artwork.kind === "family" ? "is-family" : ""} ${images.length > 4 ? "is-dense" : ""}`} aria-label={language === "es" ? `Más imágenes de ${code}` : `More images of ${code}`}>
           {images.slice(1).map((image, imageIndex) => <figure key={image.src}><span>{code}.{imageIndex + 2}</span><ZoomableArtworkImage image={image} sizes="(max-width: 760px) 100vw, 45vw" /></figure>)}
         </section>}
-        {relatedProject && projectSlug && <aside className="piece-related-project"><span>{language === "es" ? "Proyecto relacionado" : "Related project"}</span><Link href={localizedHref(`/projects/${projectSlug}`, language)}>{language === "es" ? relatedProject.titleEs : relatedProject.titleEn} ↗</Link></aside>}
+        {relatedProject && projectSlug && <aside className="piece-related-project"><span>{language === "es" ? "Proyecto relacionado" : "Related project"}</span><Link href={localizedHref(`/projects/${projectSlug}`, language)}>{language === "es" ? relatedProject.titleEs : relatedProject.titleEn} <ArrowIcon /></Link></aside>}
         <nav className="artwork-pagination" aria-label={language === "es" ? "Pieza anterior y siguiente" : "Previous and next work"}><Link href={localizedHref(`/selected-artworks/${previous.slug}`, language)}>← {artworkCode(previous)}</Link><Link href={localizedHref("/selected-artworks", language)}>{language === "es" ? "Todas las piezas" : "All works"}</Link><Link href={localizedHref(`/selected-artworks/${next.slug}`, language)}>{artworkCode(next)} →</Link></nav>
       </main>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({ "@context": "https://schema.org", "@type": "VisualArtwork", name: artwork.title, identifier: code, dateCreated: artwork.year, artMedium: artwork.material, size: artwork.dimensions, creator: { "@type": "Person", name: "Brenda Ranieri", url: "https://brendaranieri.art" }, image: images.map((image) => new URL(image.src, "https://brendaranieri.art").toString()), url: `https://brendaranieri.art/selected-artworks/${artwork.slug}` }).replaceAll("<", "\\u003c") }} />

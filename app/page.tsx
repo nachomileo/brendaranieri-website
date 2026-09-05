@@ -5,6 +5,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { SiteSignature } from "./components/site-signature";
 import { FooterContact } from "./components/footer-contact";
+import { ArrowIcon } from "./components/arrow-icon";
 import { artworkCode, homeArtworks } from "../lib/artworks";
 import { getHomeProjectImages } from "../lib/project-images";
 import { projectPresentation } from "../lib/project-presentation";
@@ -88,14 +89,14 @@ export default function Home() {
         </section>
 
         <section className="projects section" id="projects" aria-labelledby="projects-title">
-          <div className="section-title"><div className="section-title-stack"><h2 id="projects-title">{t.projects}</h2><Link href={localizedHref("/projects", language)}>{t.viewAllProjects} ↗</Link></div><span>2022—2026</span></div>
+          <div className="section-title"><div className="section-title-stack"><h2 id="projects-title">{t.projects}</h2><Link href={localizedHref("/projects", language)}>{t.viewAllProjects} <ArrowIcon /></Link></div><span>2022—2026</span></div>
           {homeProjects.map((project, projectIndex) => {
             const presentation = projectPresentation(project, language);
             const homeImages = getHomeProjectImages(project.slug);
             const previewCount = homeImages.length || (project.slug === "oax-car-38-57" ? 4 : 3);
             return <article className="project-row" key={project.slug}>
               <div className="project-index">{String(projectIndex + 1).padStart(2, "0")}</div>
-              <div className={`project-info ${project.slug === "oax-car-38-57" ? "numeric-project-title" : ""}`}><h3>{presentation.title}</h3><p>{presentation.lines.map((line, index) => <span key={line + index}><EditorialLine value={line} />{index < presentation.lines.length - 1 && <br />}</span>)}</p><a href={localizedHref(`/projects/${project.slug}`, language)}>{t.view} ↗</a></div>
+              <div className={`project-info ${project.slug === "oax-car-38-57" ? "numeric-project-title" : ""}`}><h3>{presentation.title}</h3><p>{presentation.lines.map((line, index) => <span key={line + index}><EditorialLine value={line} />{index < presentation.lines.length - 1 && <br />}</span>)}</p><a href={localizedHref(`/projects/${project.slug}`, language)}>{t.view} <ArrowIcon /></a></div>
               <div className={`project-composition project-composition-${previewCount} ${projectIndex >= 2 ? "is-right-aligned" : ""}`} style={{ "--preview-count": previewCount } as CSSProperties}>
                 {Array.from({ length: previewCount }, (_, imageIndex) => {
                   const image = homeImages[imageIndex];
@@ -109,11 +110,11 @@ export default function Home() {
 
         <section className="bio section" id="bio" aria-labelledby="bio-title">
           <Link className="portrait" href={localizedHref("/about", language)} aria-label="About — Brenda Ranieri"><Image src="/images/journal/home/about-portada.webp" alt="Retrato de Brenda Ranieri en su estudio de Carabanchel" fill sizes="(max-width: 760px) 100vw, 50vw" quality={90} /></Link>
-          <div className="bio-copy"><p className="kicker">About</p><h2 id="bio-title">Brenda<br />Ranieri</h2><p className="bio-text">{t.bio}</p><a className="text-link" href={localizedHref("/about", language)}>About ↗</a></div>
+          <div className="bio-copy"><p className="kicker">About</p><h2 id="bio-title">Brenda<br />Ranieri</h2><p className="bio-text">{t.bio}</p><a className="text-link" href={localizedHref("/about", language)}>About <ArrowIcon /></a></div>
         </section>
 
         <section className="section artworks" id="works" aria-labelledby="works-title">
-          <div className="section-title"><h2 id="works-title">{t.works}</h2><div className="section-actions"><span>01—06</span><Link href={localizedHref("/selected-artworks", language)}>{language === "es" ? "Ver todas" : "View all"} ↗</Link></div></div>
+          <div className="section-title"><h2 id="works-title">{t.works}</h2><div className="section-actions"><span>01—06</span><Link href={localizedHref("/selected-artworks", language)}>{language === "es" ? "Ver todas" : "View all"} <ArrowIcon /></Link></div></div>
           <div className="artwork-ledger">
             {homeArtworks.map((artwork) => {
               const cover = artwork.images?.[homeArtworkCover[artwork.slug] ?? 0];
@@ -131,12 +132,12 @@ export default function Home() {
         </section>
 
         <section className="studio section home-journal-teaser" id="processes" aria-labelledby="studio-title">
-          <div className="studio-copy"><p className="kicker">{t.note} 014</p><h2 id="studio-title">{t.studio}</h2><p>{t.studioText}</p><Link className="home-archive-link" href={localizedHref("/situated-processes", language)}>{language === "es" ? "Ver archivo" : "View archive"} ↗</Link><div className="studio-index"><span>Clay 680</span><span>Asturias</span><span>20.08.2025</span></div></div>
-          <a className="studio-image" href={localizedHref("/situated-processes", language)}><Image src="/images/journal/situated/material-cantera-caolin-burela-brenda-ranieri-2026-14.webp" alt="Trabajo de campo y recolección de material en Burela" fill sizes="(max-width: 760px) 100vw, 58vw" quality={88} /></a>
+          <div className="studio-copy"><p className="kicker">{t.note} 014</p><h2 id="studio-title">{t.studio}</h2><p>{t.studioText}</p><Link className="home-archive-link" href={localizedHref("/situated-processes", language)}>{language === "es" ? "Ver archivo" : "View archive"} <ArrowIcon /></Link><div className="studio-index"><span>Clay 680</span><span>Asturias</span><span>20.08.2025</span></div></div>
+          <a className="studio-image" href={localizedHref("/situated-processes", language)}><Image src="/images/journal/diary/situated-artistic/situated-03-practica-005.webp" alt="Archivo de materiales y herramientas en el estudio de Brenda Ranieri" fill sizes="(max-width: 760px) 100vw, 58vw" quality={88} /></a>
         </section>
 
         <section className="studio section home-journal-teaser home-shared-teaser" id="shared" aria-labelledby="shared-title">
-          <div className="studio-copy"><p className="kicker">{t.note} 015</p><h2 id="shared-title">{t.shared}</h2><p>{t.sharedText}</p><Link className="home-archive-link" href={localizedHref("/shared-practices", language)}>{language === "es" ? "Ver archivo" : "View archive"} ↗</Link><div className="studio-index"><span>{language === "es" ? "Co-creación" : "Co-creation"}</span><span>Madrid</span><span>2025—2026</span></div></div>
+          <div className="studio-copy"><p className="kicker">{t.note} 015</p><h2 id="shared-title">{t.shared}</h2><p>{t.sharedText}</p><Link className="home-archive-link" href={localizedHref("/shared-practices", language)}>{language === "es" ? "Ver archivo" : "View archive"} <ArrowIcon /></Link><div className="studio-index"><span>{language === "es" ? "Co-creación" : "Co-creation"}</span><span>Madrid</span><span>2025—2026</span></div></div>
           <a className="studio-image" href={localizedHref("/shared-practices", language)}><Image src="/images/journal/shared/home-shared-portada.webp" alt="Taller colectivo con arcillas silvestres y materiales del paisaje urbano" fill sizes="(max-width: 760px) 100vw, 58vw" quality={90} /></a>
         </section>
       </main>

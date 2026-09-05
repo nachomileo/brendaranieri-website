@@ -5,6 +5,12 @@ export type ProjectImage = ManifestImage & { src: string };
 
 const manifest = imageManifest as Record<string, ManifestImage[]>;
 
+// Preserve source files while excluding confirmed visual duplicates from the
+// public galleries. Keeping this explicit also preserves editorial ordering.
+const duplicateExclusions: Record<string, Set<string>> = {
+  "ruta-off-cerartmic-escala-house": new Set(["cerartmic-brenda-ranieri-4.webp"]),
+};
+
 const homeSelections: Record<string, string[]> = {
   "cosas-que-cargan-cosas": ["05.webp", "cosas-que-cargan-cosas-brenda-ranieri-24.webp", "01.webp", "04.webp"],
   "el-botijo-revisitado": ["02.webp", "04.webp", "botijos-matadero-madrid-brenda-ranieri-2.webp"],
@@ -24,7 +30,7 @@ const preferredCovers: Record<string, string> = {
 };
 
 export function getProjectImages(slug: string): ProjectImage[] {
-  return (manifest[slug] ?? []).map((image) => ({
+  return (manifest[slug] ?? []).filter((image) => !duplicateExclusions[slug]?.has(image.file)).map((image) => ({
     ...image,
     src: `/images/projects/${slug}/${image.file}`,
   }));

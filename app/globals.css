@@ -927,3 +927,24 @@ html,body,button,input,textarea,select{font-family:var(--font-text)}
   .collective-journal #practice-02 .practice-collection.is-integrated .practice-gallery{grid-template-columns:repeat(3,minmax(0,1fr))!important;gap:13px 5px!important}
   .collective-journal #practice-02 .practice-gallery figcaption{font-size:7px}
 }
+
+/* Final navigation and icon consistency. Native glyph arrows can render as
+   coloured emoji on iOS, so every directional mark uses this shared SVG. */
+.arrow-icon{display:inline-block;width:.9em;height:.9em;margin-left:.12em;vertical-align:-.08em;overflow:visible}
+.arrow-icon path{fill:none;stroke:currentColor;stroke-width:1.15;stroke-linecap:square;stroke-linejoin:miter;vector-effect:non-scaling-stroke}
+.back-to-top .arrow-icon{width:17px;height:17px;margin:0;vertical-align:middle}
+.archive-menu-toggle{margin-left:auto;color:var(--ink);font-family:var(--font-text);font-size:11px;letter-spacing:.07em}
+
+@media(max-width:760px){
+  .archive-header{position:relative;align-items:center!important;overflow:visible}
+  .archive-header .archive-menu-toggle{display:block}
+  .archive-header .archive-primary-nav{display:none;position:absolute;z-index:40;top:100%;left:0;right:0;max-width:none;overflow:visible;margin:0;padding:18px var(--gutter) 24px;background:var(--paper);border-bottom:1px solid var(--line);flex-direction:column;gap:14px;white-space:normal}
+  .archive-header .archive-primary-nav.is-open{display:flex}
+
+  /* The previous fixed minimum height pushed the About link to the bottom of
+     an empty viewport. Let the mobile copy size itself to its content. */
+  .bio{min-height:0!important}
+  .bio-copy{min-height:0!important;padding-bottom:0!important}
+  .bio-copy .text-link{margin-top:34px!important}
+  .portrait{min-height:0!important;height:112vw}
+}

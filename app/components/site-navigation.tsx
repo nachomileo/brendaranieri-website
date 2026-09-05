@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { localizedHref } from "../../lib/i18n";
 
 const labels = {
@@ -11,6 +11,10 @@ const labels = {
 const hrefs = ["/projects", "/about", "/selected-artworks", "/situated-processes", "/shared-practices"] as const;
 
 export function SiteNavigation({ language = "es" }: { language?: "es" | "en" }) {
+  const [menuOpen, setMenuOpen] = useState(false);
   useEffect(() => { document.documentElement.lang = language; }, [language]);
-  return <nav className="archive-primary-nav" aria-label={language === "es" ? "Navegación principal" : "Primary navigation"}>{hrefs.map((href, index) => <Link href={localizedHref(href, language)} key={href}>{labels[language][index]}</Link>)}</nav>;
+  return <>
+    <button className="menu-toggle archive-menu-toggle" type="button" aria-expanded={menuOpen} aria-controls="archive-primary-navigation" onClick={() => setMenuOpen((open) => !open)}>Menu</button>
+    <nav id="archive-primary-navigation" className={`archive-primary-nav ${menuOpen ? "is-open" : ""}`} aria-label={language === "es" ? "Navegación principal" : "Primary navigation"}>{hrefs.map((href, index) => <Link href={localizedHref(href, language)} key={href} onClick={() => setMenuOpen(false)}>{labels[language][index]}</Link>)}</nav>
+  </>;
 }
