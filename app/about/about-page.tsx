@@ -53,7 +53,7 @@ export default function AboutPage() {
           <h1>Brenda Ranieri</h1>
           <p className="about-lead">{copy.lead}</p>
           <div className="about-statement-copy">{copy.statement.map((paragraph) => <p key={paragraph}>{paragraph}</p>)}</div>
-          <div className="about-profile-links"><a href="mailto:info@brendaranieri.art">Email <ArrowIcon /></a><a href="https://www.instagram.com/brendaranieri.studio/" target="_blank" rel="noopener noreferrer">Instagram <ArrowIcon /></a><a href="https://www.fresco.art/" target="_blank" rel="noopener noreferrer">{language === "es" ? "Visitar Fresca. La Nave" : "Visit Fresca. La Nave"} <ArrowIcon /></a></div>
+          <div className="about-profile-links"><a href="mailto:hola@brendaranieri.art">Email <ArrowIcon /></a><a href="https://www.instagram.com/brendaranieri.studio/" target="_blank" rel="noopener noreferrer">Instagram <ArrowIcon /></a><a href="https://www.fresco.art/" target="_blank" rel="noopener noreferrer">{language === "es" ? "Visitar Fresca. La Nave" : "Visit Fresca. La Nave"} <ArrowIcon /></a></div>
         </div>
         <figure className="about-profile-image"><Image src="/images/journal/home/about-portada-interior.webp" alt="Retrato de Brenda Ranieri en su estudio de Carabanchel" fill priority sizes="(max-width: 760px) 100vw, 40vw" quality={92} /></figure>
       </section>

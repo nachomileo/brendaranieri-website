@@ -37,7 +37,7 @@ export default async function CookiesPage({ searchParams }: { searchParams: Prom
       </section>
       <section>
         <h2>{es ? "Responsable y contacto" : "Controller and contact"}</h2>
-        <p>Brenda Ranieri · <a href="mailto:info@brendaranieri.art">info@brendaranieri.art</a></p>
+        <p>Brenda Ranieri · <a href="mailto:hola@brendaranieri.art">hola@brendaranieri.art</a></p>
       </section>
       <Link className="legal-home-link" href={language === "en" ? "/?lang=en" : "/"}>{es ? "Volver a inicio" : "Back home"}</Link>
     </main>
