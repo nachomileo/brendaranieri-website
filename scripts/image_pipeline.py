@@ -4,6 +4,9 @@ import unicodedata
 
 from PIL import Image, ImageOps
 
+MAX_IMAGE_DIMENSION = 2400
+WEBP_QUALITY = 85
+
 
 def web_filename(source_name: str, used: set[str] | None = None) -> str:
     """Return a readable, URL-safe WebP filename derived from the source."""
@@ -32,6 +35,6 @@ def prepare_image(source: Path, output: Path) -> tuple[int, int]:
     output.parent.mkdir(parents=True, exist_ok=True)
     with Image.open(source) as raw:
         image = ImageOps.exif_transpose(raw).convert("RGB")
-        image.thumbnail((2400, 2400), Image.Resampling.LANCZOS)
-        image.save(output, "WEBP", quality=88, method=6)
+        image.thumbnail((MAX_IMAGE_DIMENSION, MAX_IMAGE_DIMENSION), Image.Resampling.LANCZOS)
+        image.save(output, "WEBP", quality=WEBP_QUALITY, method=6)
         return image.size

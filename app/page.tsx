@@ -85,7 +85,7 @@ export default function Home() {
 
       <main>
         <section className="hero" aria-label="Featured artwork">
-          <div className="hero-image"><Image src="/images/hero-la-forma-del-agua-quieta-final.webp" alt="Fuente cerámica de La forma del agua quieta sobre fondo blanco" fill priority sizes="100vw" quality={92} /></div>
+          <div className="hero-image"><Image src="/images/hero-la-forma-del-agua-quieta-final.webp" alt="Fuente cerámica de La forma del agua quieta sobre fondo blanco" fill preload sizes="100vw" quality={85} /></div>
         </section>
 
         <section className="projects section" id="projects" aria-labelledby="projects-title">
@@ -109,7 +109,7 @@ export default function Home() {
         </section>
 
         <section className="bio section" id="bio" aria-labelledby="bio-title">
-          <Link className="portrait" href={localizedHref("/about", language)} aria-label="About — Brenda Ranieri"><Image src="/images/journal/home/about-portada.webp" alt="Retrato de Brenda Ranieri en su estudio de Carabanchel" fill sizes="(max-width: 760px) 100vw, 50vw" quality={90} /></Link>
+          <Link className="portrait" href={localizedHref("/about", language)} aria-label="About — Brenda Ranieri"><Image src="/images/journal/home/about-portada.webp" alt="Retrato de Brenda Ranieri en su estudio de Carabanchel" fill sizes="(max-width: 760px) 100vw, 50vw" quality={85} /></Link>
           <div className="bio-copy"><p className="kicker">About</p><h2 id="bio-title">Brenda<br />Ranieri</h2><p className="bio-text">{t.bio}</p><a className="text-link" href={localizedHref("/about", language)}>About <ArrowIcon /></a></div>
         </section>
 
@@ -122,7 +122,7 @@ export default function Home() {
                 <div className="artwork-number">{artworkCode(artwork)}</div>
                 <a className="artwork-stage" href={localizedHref(`/selected-artworks/${artwork.slug}`, language)} aria-label={language === "es" ? `Ver pieza ${artworkCode(artwork)}` : `View work ${artworkCode(artwork)}`}>
                   {cover
-                    ? <div className="artwork-stage-image"><Image src={cover.src} alt={cover.alt} fill sizes="(max-width: 760px) 42vw, 16vw" quality={88} /></div>
+                    ? <div className="artwork-stage-image"><Image src={cover.src} alt={cover.alt} fill sizes="(max-width: 760px) 42vw, 16vw" quality={75} /></div>
                     : <div className={`placeholder ${artwork.className}`} role="img" aria-label={`${artwork.title}, imagen pendiente`} />}
                 </a>
                 <div className="artwork-caption"><h3>{artworkCode(artwork)}</h3><p>{artwork.material}</p><span>{artwork.year}</span></div>
@@ -133,12 +133,12 @@ export default function Home() {
 
         <section className="studio section home-journal-teaser" id="processes" aria-labelledby="studio-title">
           <div className="studio-copy"><p className="kicker">{t.note} 014</p><h2 id="studio-title">{t.studio}</h2><p>{t.studioText}</p><Link className="home-archive-link" href={localizedHref("/situated-processes", language)}>{language === "es" ? "Ver archivo" : "View archive"} <ArrowIcon /></Link><div className="studio-index"><span>Clay 680</span><span>Asturias</span><span>20.08.2025</span></div></div>
-          <a className="studio-image" href={localizedHref("/situated-processes", language)}><Image src="/images/journal/diary/situated-artistic/situated-03-practica-005.webp" alt="Archivo de materiales y herramientas en el estudio de Brenda Ranieri" fill sizes="(max-width: 760px) 100vw, 58vw" quality={88} /></a>
+          <a className="studio-image" href={localizedHref("/situated-processes", language)}><Image src="/images/journal/diary/situated-artistic/situated-03-practica-005.webp" alt="Archivo de materiales y herramientas en el estudio de Brenda Ranieri" fill sizes="(max-width: 760px) 100vw, 58vw" quality={85} /></a>
         </section>
 
         <section className="studio section home-journal-teaser home-shared-teaser" id="shared" aria-labelledby="shared-title">
           <div className="studio-copy"><p className="kicker">{t.note} 015</p><h2 id="shared-title">{t.shared}</h2><p>{t.sharedText}</p><Link className="home-archive-link" href={localizedHref("/shared-practices", language)}>{language === "es" ? "Ver archivo" : "View archive"} <ArrowIcon /></Link><div className="studio-index"><span>{language === "es" ? "Co-creación" : "Co-creation"}</span><span>Madrid</span><span>2025—2026</span></div></div>
-          <a className="studio-image" href={localizedHref("/shared-practices", language)}><Image src="/images/journal/shared/home-shared-portada.webp" alt="Taller colectivo con arcillas silvestres y materiales del paisaje urbano" fill sizes="(max-width: 760px) 100vw, 58vw" quality={90} /></a>
+          <a className="studio-image" href={localizedHref("/shared-practices", language)}><Image src="/images/journal/shared/home-shared-portada.webp" alt="Taller colectivo con arcillas silvestres y materiales del paisaje urbano" fill sizes="(max-width: 760px) 100vw, 58vw" quality={85} /></a>
         </section>
       </main>
 
