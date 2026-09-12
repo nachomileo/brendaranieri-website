@@ -40,7 +40,7 @@ export default function ProjectsArchive() {
             <span className="archive-project-number">{String(index + 1).padStart(2, "0")}</span>
             <div className={`archive-project-title ${project.slug === "oax-car-38-57" ? "numeric-project-title" : ""}`}><h3>{presentation.title}</h3><span>{category}</span></div>
             <Link className="archive-project-image" href={localizedHref(`/projects/${project.slug}`, language)} aria-label={`${text.view}: ${presentation.title}`}>
-              {cover ? <Image src={cover.src} alt={cover.alt} fill sizes="(max-width: 760px) 100vw, 40vw" quality={84} /> : <span className={`placeholder project-tone-${index % 6 + 1}`} />}
+              {cover ? <Image src={cover.src} alt={cover.alt} fill sizes="(max-width: 760px) 100vw, 40vw" quality={75} /> : <span className={`placeholder project-tone-${index % 6 + 1}`} />}
             </Link>
             <div className="archive-project-data">{presentation.lines.map((line, lineIndex) => <span key={line + lineIndex}><EditorialLine value={line} /></span>)}<Link className="archive-project-link" href={localizedHref(`/projects/${project.slug}`, language)}>{text.view} <ArrowIcon /></Link></div>
           </article>;
