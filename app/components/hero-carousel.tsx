@@ -19,7 +19,7 @@ export function HeroCarousel() {
 
   return <div className="hero-carousel">
     <div className="hero-carousel-track">
-      {slides.map((slide, index) => <div className="hero-carousel-slide" key={slide.src} hidden={index !== active}><Image src={slide.src} alt={slide.alt} fill preload={index === 0} sizes="100vw" quality={85} /></div>)}
+      {slides.map((slide, index) => <div className="hero-carousel-slide" key={slide.src} hidden={index !== active}><Image src={slide.src} alt={slide.alt} fill loading="eager" fetchPriority={index === 0 ? "high" : "auto"} sizes="100vw" quality={85} /></div>)}
     </div>
   </div>;
 }
