@@ -7,8 +7,16 @@ const origin = "https://brendaranieri.art";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const staticRoutes = ["", "/about", "/projects", "/selected-artworks", "/situated-processes", "/shared-practices", "/notes", "/cookies"];
+  const journalRoutes = [
+    "/situated-processes/investigacion-situada",
+    "/situated-processes/laboratorio",
+    "/situated-processes/practica-artistica",
+    "/shared-practices/agua-arcilla-y-registros",
+    "/shared-practices/arcillas-silvestres-y-materiales-del-paisaje-urbano",
+  ];
   return [
     ...staticRoutes.map((path, index) => ({ url: `${origin}${path}`, changeFrequency: "monthly" as const, priority: index === 0 ? 1 : .8 })),
+    ...journalRoutes.map((path) => ({ url: `${origin}${path}`, changeFrequency: "monthly" as const, priority: .7 })),
     ...projects.map((project) => ({ url: `${origin}/projects/${project.slug}`, changeFrequency: "monthly" as const, priority: .7 })),
     ...artworks.map((artwork) => ({ url: `${origin}/selected-artworks/${artwork.slug}`, changeFrequency: "monthly" as const, priority: .6 })),
     ...notes.map((note) => ({ url: `${origin}/notes/${note.slug}`, changeFrequency: "monthly" as const, priority: .65 })),

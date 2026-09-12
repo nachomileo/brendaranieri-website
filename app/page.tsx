@@ -12,6 +12,7 @@ import { projectPresentation } from "../lib/project-presentation";
 import { projects } from "../lib/projects";
 import { localizedHref } from "../lib/i18n";
 import { useSiteLanguage } from "./components/use-site-language";
+import { HeroCarousel } from "./components/hero-carousel";
 
 function EditorialLine({ value }: { value: string }) {
   return <>{value.split(/[“”"]/).map((part, index) => index % 2 ? <em key={index}>{part}</em> : part)}</>;
@@ -85,7 +86,7 @@ export default function Home() {
 
       <main>
         <section className="hero" aria-label="Featured artwork">
-          <div className="hero-image"><Image src="/images/hero-la-forma-del-agua-quieta-final.webp" alt="Fuente cerámica de La forma del agua quieta sobre fondo blanco" fill priority sizes="100vw" quality={92} /></div>
+          <div className="hero-image"><HeroCarousel /></div>
         </section>
 
         <section className="projects section" id="projects" aria-labelledby="projects-title">

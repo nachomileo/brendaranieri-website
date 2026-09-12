@@ -103,6 +103,38 @@ a{color:inherit;text-decoration:none}button{font:inherit;color:inherit}
   .footer-contact{gap:12px}.back-to-top{bottom:calc(16px + var(--footer-clearance,0px))}
 }
 
+/* September 11: page-led journals, rotating hero and clearer hierarchy. */
+.hero-carousel,.hero-carousel-track,.hero-carousel-slide{position:relative;width:100%;height:100%}
+.hero-carousel{overflow:hidden}
+.hero-carousel-track{display:flex;transition:transform .9s cubic-bezier(.22,.61,.36,1);will-change:transform}
+.hero-carousel-slide{flex:0 0 100%;overflow:hidden}
+.hero-carousel-slide img{object-fit:cover}
+.hero-carousel-controls{position:absolute;z-index:2;right:18px;bottom:18px;display:flex;gap:5px}
+.hero-carousel-controls button{min-width:31px;padding:7px 6px;background:rgba(246,244,239,.8);border:1px solid rgba(33,32,29,.35);color:var(--ink);font:400 9px/1 var(--font-text);cursor:pointer}
+.hero-carousel-controls button.is-active{background:var(--ink);color:var(--paper)}
+.home-journal-teaser .kicker{display:none}
+.section-title h2{font:300 clamp(24px,2.6vw,43px)/1 var(--font-display);letter-spacing:-.025em;text-transform:none}
+.bio-copy h2{font-size:clamp(72px,8.7vw,144px)!important;line-height:.82!important}
+.practice-back-link,.note-back-link{display:table;padding-bottom:4px;border-bottom:1px solid currentColor;font:400 10px/1.3 var(--font-text);letter-spacing:.06em;text-transform:uppercase}
+.practice-back-link{margin:0 0 70px}
+.note-back-link{margin-top:90px}
+
+@media(max-width:760px){
+  .hero-carousel-controls{right:10px;bottom:10px}
+  .section-title h2{font-size:clamp(26px,8vw,38px)}
+  .bio-copy h2{font-size:clamp(60px,19vw,92px)!important}
+  .projects{padding-bottom:32px!important}
+  .bio{padding-top:32px!important}
+  .project-composition,.project-composition.is-right-aligned{display:flex!important;width:100%!important;max-width:100%;margin-left:0!important;gap:4px;justify-content:flex-start!important;overflow:visible!important}
+  .project-composition .project-preview{flex:var(--image-ratio) 1 0;width:0!important;min-width:0!important}
+  .project-preview-frame{width:100%;height:auto!important;aspect-ratio:var(--image-ratio);overflow:hidden}
+  .project-preview-frame img{width:100%!important;height:100%!important;object-fit:cover}
+  .practice-back-link{margin-bottom:48px}
+  .note-back-link{margin-top:65px}
+}
+
+@media(prefers-reduced-motion:reduce){.hero-carousel-track{transition:none}}
+
 /* Editorial image system */
 .hero-image,.portrait,.studio-image,.shared-image{position:relative;overflow:hidden}
 .hero-image img,.portrait img,.studio-image img,.shared-image img{object-fit:cover}
@@ -972,4 +1004,42 @@ html,body,button,input,textarea,select{font-family:var(--font-text)}
   .footer-contact>*+*::before{content:"—";display:inline-block;margin-right:8px;color:var(--muted)}
   .home-shared-teaser .studio-copy{min-height:0!important}
   .home-shared-teaser .studio-index{margin-top:36px}
+}
+
+/* Final requested homepage hierarchy and compact mobile project strips. */
+.home-journal-teaser .kicker{display:none!important}
+.section-title h2{font:300 clamp(24px,2.6vw,43px)/1 var(--font-display)!important;letter-spacing:-.025em!important;text-transform:none!important}
+.bio-copy h2{font-size:clamp(72px,8.7vw,144px)!important;line-height:.82!important}
+@media(max-width:760px){
+  .section-title h2{font-size:clamp(26px,8vw,38px)!important}
+  .bio-copy h2{font-size:clamp(60px,19vw,92px)!important}
+  .projects{padding-bottom:32px!important}
+  .bio{padding-top:32px!important}
+  .project-composition,.project-composition.is-right-aligned{display:flex!important;width:100%!important;max-width:100%;margin-left:0!important;gap:4px!important;justify-content:flex-start!important;overflow:visible!important}
+  .project-composition .project-preview{flex:var(--image-ratio) 1 0!important;width:0!important;min-width:0!important}
+  .project-preview-frame{width:100%;height:auto!important;aspect-ratio:var(--image-ratio);overflow:hidden}
+  .project-preview-frame img{width:100%!important;height:100%!important;object-fit:cover}
+}
+
+/* September 11b: larger navigation and uncropped situated-process imagery. */
+.hero-carousel-track{display:block;transition:none;will-change:auto}
+.hero-carousel-slide[hidden]{display:none}
+.primary-nav,.archive-primary-nav,.archive-header nav{font-size:clamp(12px,.9vw,14px)!important;gap:clamp(18px,2.2vw,38px)}
+.menu-toggle,.archive-menu-toggle{font:400 13px/1 var(--font-text)!important;letter-spacing:.055em}
+.site-signature{font-size:clamp(17px,1.3vw,21px)!important}
+.bio-copy .kicker{font:300 clamp(24px,2.6vw,43px)/1 var(--font-display)!important;letter-spacing:-.025em!important;text-transform:none!important}
+.bio-copy h2{font-size:clamp(79px,9.35vw,156px)!important}
+.gallery-journal-cover img{max-height:none!important;object-fit:contain!important}
+.practice-project-index figure{aspect-ratio:auto!important;overflow:visible}
+.practice-project-index figure button,.practice-project-index figure span{height:auto!important}
+.practice-project-index figure img{height:auto!important;object-fit:contain!important}
+
+@media(max-width:760px){
+  .site-signature{font-size:15px!important}
+  .primary-nav,.archive-primary-nav,.archive-header nav{font-size:15px!important;line-height:1.25}
+  .menu-toggle,.archive-menu-toggle{font-size:14px!important}
+  .bio-copy .kicker{font-size:clamp(26px,8vw,38px)!important}
+  .bio-copy h2{font-size:clamp(66px,20.5vw,100px)!important}
+  .project-composition-1,.project-composition-1.is-right-aligned{width:min(31vw,180px)!important;max-width:min(31vw,180px)!important;margin-left:auto!important;justify-content:flex-end!important}
+  .project-composition-1 .project-preview{flex:0 0 100%!important;width:100%!important}
 }

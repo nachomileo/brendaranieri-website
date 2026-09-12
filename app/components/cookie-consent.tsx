@@ -32,7 +32,6 @@ function clearAnalyticsCookies() {
 export function CookieConsent() {
   const [consent, setConsent] = useState<Consent>(null);
   const [ready, setReady] = useState(false);
-  const [panelOpen, setPanelOpen] = useState(false);
   const [language, setLanguage] = useState<"es" | "en">("es");
 
   useEffect(() => {
@@ -49,7 +48,6 @@ export function CookieConsent() {
   const choose = (value: Exclude<Consent, null>) => {
     localStorage.setItem(storageKey, JSON.stringify({ value, savedAt: Date.now() }));
     setConsent(value);
-    setPanelOpen(false);
     if (value === "rejected") clearAnalyticsCookies();
   };
 
@@ -59,18 +57,16 @@ export function CookieConsent() {
     accept: "Aceptar",
     reject: "Rechazar",
     policy: "Política de cookies",
-    settings: "Cookies",
   } : {
     title: "Cookies and privacy",
     body: "We use Google Analytics cookies only to understand how the website is visited. They will only be activated if you accept them.",
     accept: "Accept",
     reject: "Reject",
     policy: "Cookie policy",
-    settings: "Cookies",
   };
 
   if (!ready) return null;
-  const showPanel = consent === null || panelOpen;
+  const showPanel = consent === null;
 
   return <>
     {consent === "accepted" && <>
@@ -85,6 +81,6 @@ export function CookieConsent() {
     {showPanel ? <section className="cookie-banner" role="dialog" aria-modal="true" aria-labelledby="cookie-title" aria-describedby="cookie-description">
       <div><p id="cookie-title">{text.title}</p><p id="cookie-description">{text.body}</p><Link href={`/cookies${language === "en" ? "?lang=en" : ""}`}>{text.policy}</Link></div>
       <div className="cookie-actions"><button type="button" onClick={() => choose("rejected")}>{text.reject}</button><button type="button" onClick={() => choose("accepted")}>{text.accept}</button></div>
-    </section> : <button className="cookie-settings" type="button" onClick={() => setPanelOpen(true)}>{text.settings}</button>}
+    </section> : null}
   </>;
 }
