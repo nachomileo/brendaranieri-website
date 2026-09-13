@@ -14,7 +14,7 @@ export function SiteNavigation({ language = "es" }: { language?: "es" | "en" }) 
   const [menuOpen, setMenuOpen] = useState(false);
   useEffect(() => { document.documentElement.lang = language; }, [language]);
   return <>
-    <button className="menu-toggle archive-menu-toggle" type="button" aria-expanded={menuOpen} aria-controls="archive-primary-navigation" onClick={() => setMenuOpen((open) => !open)}>Menu</button>
+    <button className="menu-toggle archive-menu-toggle" type="button" aria-expanded={menuOpen} aria-controls="archive-primary-navigation" onClick={() => setMenuOpen((open) => !open)}>{language === "es" ? "Menú" : "Menu"}</button>
     <nav id="archive-primary-navigation" className={`archive-primary-nav ${menuOpen ? "is-open" : ""}`} aria-label={language === "es" ? "Navegación principal" : "Primary navigation"}>{hrefs.map((href, index) => <Link href={localizedHref(href, language)} key={href} onClick={() => setMenuOpen(false)}>{labels[language][index]}</Link>)}</nav>
   </>;
 }

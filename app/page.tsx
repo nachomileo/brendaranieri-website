@@ -78,7 +78,7 @@ export default function Home() {
     <>
       <header className="site-header" id="page-top">
         <SiteSignature href="#page-top" />
-        <button className="menu-toggle" type="button" aria-expanded={menuOpen} onClick={() => setMenuOpen(!menuOpen)}>Menu</button>
+        <button className="menu-toggle" type="button" aria-expanded={menuOpen} onClick={() => setMenuOpen(!menuOpen)}>{language === "es" ? "Menú" : "Menu"}</button>
         <nav className={menuOpen ? "primary-nav is-open" : "primary-nav"} aria-label="Primary navigation">
           {sections.map((id, index) => { const href = id === "projects" ? "/projects" : id === "bio" ? "/about" : id === "notes" ? "/notes" : `#${id}`; return <a key={id} href={localizedHref(href, language)} onClick={() => setMenuOpen(false)}>{t.nav[index]}</a>; })}
         </nav>
